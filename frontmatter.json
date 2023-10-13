@@ -1,0 +1,145 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.publicFolder": {
+    "path": "src/assets",
+    "relative": true
+  },
+  "frontMatter.extends": [
+    ".frontmatter/starlight/contenttypes.json",
+    ".frontmatter/starlight/pagefolders.json",
+    ".frontmatter/starlight/aside.json"
+  ],
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog",
+      "contentTypes": [
+        "blog"
+      ]
+    },
+    {
+      "title": "pages",
+      "path": "[[workspace]]/src/pages"
+    }
+  ],
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "previewPath": "'blog'",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "author",
+          "type": "string",
+          "single": true,
+          "required": true,
+          "default": true
+        },
+        {
+          "name": "pubDatetime",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "postSlug",
+          "type": "string",
+          "single": true,
+          "required": true,
+          "default": true
+        },
+        {
+          "name": "featured",
+          "type": "boolean",
+          "required": true,
+          "default": true
+        },
+        {
+          "name": "draft",
+          "type": "boolean",
+          "required": true,
+          "default": true
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "default": true
+        },
+        {
+          "name": "ogImage",
+          "type": "string",
+          "single": true,
+          "required": true,
+          "default": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true,
+          "required": true
+        },
+        {
+          "name": "canonicalURL",
+          "type": "string",
+          "single": true,
+          "required": true,
+          "default": true
+        }
+      ]
+    }
+  ]
+}
