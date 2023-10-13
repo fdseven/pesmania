@@ -1,12 +1,6 @@
 ---
 layout: ../layouts/PrivacyLayout.astro
 title: Privacy Policy
-description: "Privacy Policy for this website"
-date: 2023-10-13T03:30:35.153Z
-preview: ""
-draft: true
-tags: []
-categories: []
 ---
 
 <h1>Privacy Policy for Pesmania</h1>
