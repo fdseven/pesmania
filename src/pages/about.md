@@ -3,34 +3,15 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-Pesmania is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
+<p>
+Bagi semua penggemar sepak bola, Pro Evolution Soccer adalah sesuatu game Sepak Bola. Maka dari itu, PESMANIA menghadirkan add-on dan pembaruan terbaik bagi semua gamer terutama PES, untuk tetap semangat dan memiliki antusias yang tinggi. Dengan ini, PESMANIA juga berusaha menjadi platform terbaik bagi mereka yang mencari simulator sepak bola terbaik di dunia. Kami membagikan modul terbaru yang memungkinkan memiliki banyak papan skor untuk kompetisi atau liga apa pun. Patch terbaru dapat menjadikan semua tim berlisensi dengan nama resmi, logo, kit, dan yang lainnya.</p>
 
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
+<p>
+Selain berbagi patch dan modifikasi gratis, PESMANIA juga merupakan pilihan bagus untuk Anda jika Anda ingin memainkan video game sepak bola di stadion yang fantastis. Bahkan jika Anda tidak terlalu paham untuk melakukan perubahan pada PES dan memodifikasinya, Anda dapat menggunakan bantuan tutorial dan trik yang kami sediakan. Kemudian, ada juga bermacam tools untuk modifikasi semua itu yang kami share untuk dapat mengubah stadion dan pertandingan membosankan menjadi lingkungan permainan yang menarik.</p>
 
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+<p>
+Secara keseluruhan, kami bercita-cita untuk memberikan bantuan dan kemudahan kepada para pemain PES sehingga mereka dapat memodifikasi permainan & merasakan permainan Pro Evolution Soccer yang mendekati karakteristik asli nya. Selain itu, platform kami adalah platform terbaik bagi mereka yang ingin terus mendapatkan berita dan informasi terkini terkait eFootball. Singkatnya, kami menyediakan layanan kelas atas kepada semua penggemar PES untuk pengalaman bermain game tanpa kerumitan. ENJOY!</p>
 
-<div>
+<!-- <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
-</div>
-
-## Tech Stack
-
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
-
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+</div> -->
