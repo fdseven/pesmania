@@ -4,13 +4,10 @@ pubDatetime: 2022-09-26T12:13:24Z
 title: Predefined color schemes
 postSlug: predefined-color-schemes
 featured: false
-draft: false
+draft: true
 tags:
   - color-schemes
-ogImage: ""
-description:
-  Some of the well-crafted, predefined color schemes for AstroPaper blog
-  theme.
+description: Some of the well-crafted, predefined color schemes for AstroPaper blog theme.
 ---
 
 I've crafted some predefined color schemes for this AstroPaper blog theme. You can replace these color schemes with the original ones.
@@ -148,5 +145,20 @@ html[data-theme="dark"] {
   --color-card: 52, 63, 96;
   --color-card-muted: 138, 51, 2;
   --color-border: 171, 75, 8;
+}
+```
+
+### Astro Deep Purple (New dark theme in AstroPaper 3)
+
+![AstroPaper v3 new theme](https://github.com/satnaing/astro-paper/assets/53733092/c8b5d7e1-a3bc-4852-a5ad-4abf7b3cec79)
+
+```css
+html[data-theme="dark"] {
+  --color-fill: 33, 39, 55;
+  --color-text-base: 234, 237, 243;
+  --color-accent: 235, 63, 211;
+  --color-card: 52, 63, 96;
+  --color-card-muted: 125, 79, 124;
+  --color-border: 100, 36, 81;
 }
 ```

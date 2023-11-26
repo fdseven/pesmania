@@ -4,7 +4,7 @@ author: Sat Naing
 pubDatetime: 2023-07-21T10:11:06.130Z
 postSlug: how-to-add-estimated-reading-time
 featured: false
-draft: false
+draft: true
 tags:
   - FAQ
 description: How you can add an 'Reading time' in your blog posts of AstroPaper.
@@ -37,7 +37,7 @@ export function remarkReadingTime() {
 }
 ```
 
-Step (3) Add the plugin to `astro.config.mjs`
+Step (3) Add the plugin to `astro.config.ts`
 
 ```js
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs"; // make sure your relative path is correct
@@ -65,43 +65,37 @@ export default defineConfig({
 });
 ```
 
-Step (4) Add `readingTime` to blog schema (`src/content/_schemas.ts`)
+Step (4) Add `readingTime` to blog schema (`src/content/config.ts`)
 
 ```ts
-import { z } from "astro:content";
+import { SITE } from "@config";
+import { defineCollection, z } from "astro:content";
 
-export const blogSchema = z
-  .object({
-    author: z.string().optional(),
-    pubDatetime: z.date(),
-    title: z.string(),
-    postSlug: z.string().optional(),
-    featured: z.boolean().optional(),
-    draft: z.boolean().optional(),
-    tags: z.array(z.string()).default(["others"]),
-    ogImage: z.string().optional(),
-    description: z.string(),
-    canonicalURL: z.string().optional(),
-    readingTime: z.string().optional(), // 👈🏻 readingTime frontmatter
-  })
-  .strict();
+const blog = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      // others...
+      canonicalURL: z.string().optional(),
+      readingTime: z.string().optional(), // 👈🏻 readingTime frontmatter
+    }),
+});
 
-export type BlogFrontmatter = z.infer<typeof blogSchema>;
+export const collections = { blog };
 ```
 
 Step (5) Create a new file called `getPostsWithRT.ts` under `src/utils` directory.
 
 ```ts
-import type { BlogFrontmatter } from "@content/_schemas";
 import type { MarkdownInstance } from "astro";
 import slugify from "./slugify";
 import type { CollectionEntry } from "astro:content";
 
 export const getReadingTime = async () => {
   // Get all posts using glob. This is to get the updated frontmatter
-  const globPosts = import.meta.glob<MarkdownInstance<BlogFrontmatter>>(
-    "../content/blog/*.md"
-  );
+  const globPosts = import.meta.glob("../content/blog/*.md") as Promise<
+    CollectionEntry<"blog">["data"][]
+  >;
 
   // Then, set those frontmatter value in a JS Map with key value pair
   const mapFrontmatter = new Map();
