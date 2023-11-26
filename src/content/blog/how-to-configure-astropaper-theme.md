@@ -4,11 +4,10 @@ pubDatetime: 2022-09-23T04:58:53Z
 title: How to configure AstroPaper theme
 postSlug: how-to-configure-astropaper-theme
 featured: true
-draft: false
+draft: true
 tags:
   - configuration
   - docs
-ogImage: ""
 description: How you can make AstroPaper theme absolutely yours.
 ---
 
@@ -33,17 +32,6 @@ export const SITE = {
   lightAndDarkMode: true,
   postPerPage: 3,
 };
-```
-
-Then, replace site property of `astro.config.mjs` file with your own deployed domain. _(You can also omit this step if you don't have deployed domain yet or you are still in development mode)_
-
-```js
-// file: astro.config.mjs
-export default defineConfig({
-  site: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  integrations: [...],
-  ...
-)}
 ```
 
 Here are SITE configuration options

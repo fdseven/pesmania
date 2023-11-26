@@ -23,8 +23,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>All About PES 2021, patch, mods, tutorial, and many more...</h1>
-      <a
+      <h1 class="mr-2">All About PES 2021, patch, mods, tutorial, and many more...</h1>
+      <!-- <a
         target="_blank"
         href="/rss.xml"
         class="rss-link"
@@ -38,34 +38,12 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
           ></path><circle cx="6" cy="18" r="2"></circle>
         </svg>
-      </a>
-
+      </a> -->
       <p>
-        Bagi semua penggemar sepak bola, pasti sudah tidak asing lagi dengan game Pro Evolution Soccer. Maka dari itu, PESMANIA menghadirkan add-on dan pembaruan terbaik bagi semua gamer terutama PES, untuk tetap semangat dan memiliki antusias yang tinggi. Dengan ini, PESMANIA juga berusaha menjadi platform terbaik bagi mereka yang mencari simulator sepak bola terbaik di dunia. Kami membagikan modul terbaru yang memungkinkan memiliki banyak papan skor untuk kompetisi atau liga apa pun. Patch terbaru dapat menjadikan semua tim berlisensi dengan nama resmi, logo, kit, dan yang lainnya.</p>
-
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3982586798741178"
-          crossorigin="anonymous"></script>
-      <!-- ad unit 1 -->
-      <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-3982586798741178"
-          data-ad-slot="1560677492"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-
-      <p>
-        Read the blog posts or check
-        <LinkButton
-          className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
+        Bagi semua penggemar sepak bola, pasti sudah tidak asing lagi dengan game Pro Evolution Soccer. Maka dari itu, PESMANIA menghadirkan add-on dan pembaruan terbaik bagi semua gamer terutama PES, untuk tetap semangat dan memiliki antusias yang tinggi. Dengan ini, PESMANIA juga berusaha menjadi platform terbaik bagi mereka yang mencari simulator sepak bola terbaik di dunia. Kami membagikan modul terbaru yang memungkinkan memiliki banyak papan skor untuk kompetisi atau liga apa pun. Patch terbaru dapat menjadikan semua tim berlisensi dengan nama resmi, logo, kit, dan yang lainnya.
       </p>
-      {
+      
+      <!-- {
         // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
@@ -73,7 +51,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             <Socials />
           </div>
         )
-      }
+      } -->
     </section>
 
     <Hr />
@@ -102,16 +80,18 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <h2>Recent Posts</h2>
       <ul>
         {
-          sortedPosts.map(
-            ({ data }, index) =>
-              index < 4 && (
-                <Card
-                  href={`/posts/${slugify(data)}`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              )
-          )
+          sortedPosts
+            .filter(({ data }) => !data.featured)
+            .map(
+              ({ data }, index) =>
+                index < 4 && (
+                  <Card
+                    href={`/posts/${slugify(data)}`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+            )
         }
       </ul>
       <div class="all-posts-btn-wrapper">

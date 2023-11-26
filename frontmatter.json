@@ -1,26 +1,14 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "astro",
-  "frontMatter.preview.host": "http://localhost:4321",
-  "frontMatter.content.publicFolder": {
-    "path": "src/assets",
-    "relative": true
-  },
-  "frontMatter.extends": [
-    ".frontmatter/starlight/contenttypes.json",
-    ".frontmatter/starlight/pagefolders.json",
-    ".frontmatter/starlight/aside.json"
-  ],
+  "frontMatter.preview.host": "http://localhost:4322",
+  "frontMatter.content.publicFolder": "public",
   "frontMatter.content.pageFolders": [
     {
       "title": "blog",
-      "path": "[[workspace]]/src/content/blog",
-      "contentTypes": [
-        "blog"
-      ]
+      "path": "[[workspace]]/src/content/blog"
     },
     {
-      "title": "pages",
       "path": "[[workspace]]/src/pages"
     }
   ],
@@ -28,118 +16,81 @@
     {
       "name": "default",
       "pageBundle": false,
-      "previewPath": null,
+      "previewPath": "'blog'",
+      "filePrefix": null,
+      "clearEmpty": true,
       "fields": [
         {
-          "title": "Title",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "title": "Description",
-          "name": "description",
-          "type": "string"
+          "title": "Author",
+          "name": "author",
+          "type": "string",
+          "default": "FDSEVEN"
         },
         {
           "title": "Publishing date",
-          "name": "date",
+          "name": "pubDatetime",
           "type": "datetime",
           "default": "{{now}}",
           "isPublishDate": true
         },
         {
-          "title": "Content preview",
-          "name": "preview",
-          "type": "image"
+          "title": "Last modified date",
+          "name": "lastmod",
+          "type": "datetime",
+          "isModifiedDate": true
         },
         {
-          "title": "Is in draft",
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Slug",
+          "name": "postSlug",
+          "type": "string",
+          "default": "slugified title"
+        },
+        {
+          "title": "Featured",
+          "name": "isFeatured",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Draft",
           "name": "draft",
-          "type": "draft"
+          "type": "boolean",
+          "default": false
         },
         {
           "title": "Tags",
           "name": "tags",
-          "type": "tags"
-        },
-        {
-          "title": "Categories",
-          "name": "categories",
-          "type": "categories"
-        }
-      ]
-    },
-    {
-      "name": "blog",
-      "previewPath": "'blog'",
-      "pageBundle": false,
-      "clearEmpty": true,
-      "fields": [
-        {
-          "name": "author",
-          "type": "string",
-          "single": true,
-          "required": true,
-          "default": true
-        },
-        {
-          "name": "pubDatetime",
-          "type": "datetime",
-          "default": "{{now}}",
-          "required": true
-        },
-        {
-          "name": "title",
-          "type": "string",
-          "single": true,
-          "required": true
-        },
-        {
-          "name": "postSlug",
-          "type": "string",
-          "single": true,
-          "required": true,
-          "default": true
-        },
-        {
-          "name": "featured",
-          "type": "boolean",
-          "required": true,
-          "default": true
-        },
-        {
-          "name": "draft",
-          "type": "boolean",
-          "required": true,
-          "default": true
-        },
-        {
-          "name": "tags",
           "type": "list",
-          "required": true,
-          "default": true
+          "default": [
+            "post"
+          ]
         },
         {
-          "name": "ogImage",
-          "type": "string",
-          "single": true,
-          "required": true,
-          "default": true
-        },
-        {
+          "title": "Description",
           "name": "description",
           "type": "string",
-          "single": true,
-          "required": true
+          "default": "post description"
         },
         {
-          "name": "canonicalURL",
-          "type": "string",
-          "single": true,
-          "required": true,
-          "default": true
+          "title": "Content preview",
+          "name": "ogImage",
+          "type": "image",
+          "isPreviewImage": true,
+          "default": ""
+        },
+        {
+          "title": "lastmod",
+          "name": "lastmod",
+          "type": "datetime"
         }
       ]
     }
-  ]
+  ],
+  "frontMatter.website.host": "https://pesmania.web.id"
 }

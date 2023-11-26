@@ -1,16 +1,16 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://pesmania.web.id/",
+  website: "https://pesmania.web.id/", // replace this with your deployed domain
   author: "FDSEVEN",
-  desc: "A platform for modifying Pro Evolution Soccer game.",
-  title: "PESMANIA",
+  desc: "A website for Pro Evolution Soccer gamers.",
+  title: "PESMania",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
 };
 
-export const LOCALE = ["en-EN"]; // set to [] to use the environment default
+export const LOCALE = []; // set to [] to use the environment default
 
 export const LOGO_IMAGE = {
   enable: false,
