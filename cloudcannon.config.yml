@@ -1,0 +1,15 @@
+paths:
+  uploads: uploads
+  static: ''
+  collections: ''
+  data: ''
+  layouts:
+collections_config: {}
+_inputs: {}
+_select_data: {}
+_structures: {}
+_editables: {}
+data_config: {}
+editor:
+  default_path: visual
+timezone: Etc/UTC
