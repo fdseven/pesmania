@@ -9,11 +9,11 @@ tags:
   - scoreboard
   - tutorial
 description: post description
-ogImage: https://evoweb.uk/attachments/spoiler-img-png.239683/
 type: blog
+ogImage: /assets/spoiler-img.png
 ---
 
-![](/astropaper-og.jpg)
+![](/assets/spoiler-img.png)
 
 <p>Fdseven dengan bangga mempersembahkan & merilis scoreboard eFootball Pro Evolution Soccer 2021 pertamanya - Premier League 2023/24.</p>
 
