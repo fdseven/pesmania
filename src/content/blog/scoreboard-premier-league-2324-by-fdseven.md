@@ -9,7 +9,8 @@ tags:
   - scoreboard
   - tutorial
 description: post description
-ogImage: /astropaper-og.jpg
+ogImage: https://evoweb.uk/attachments/spoiler-img-png.239683/
+type: blog
 ---
 
 ![](/astropaper-og.jpg)

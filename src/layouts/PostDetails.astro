@@ -34,7 +34,7 @@ const ogUrl = new URL(
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
+  <div class="mx-auto mt-24 flex w-full max-w-5xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
@@ -46,10 +46,13 @@ const ogUrl = new URL(
       </svg><span>Go back</span>
     </button>
   </div>
-  <main id="main-content">
+  <main id="main-content" class="bg-skin-fill z-10">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <Datetime datetime={pubDatetime} size="lg" className="my-2" />
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+    <div class="flex items-center">
+      <Datetime datetime={pubDatetime} size="lg" className="my-2 mr-4" />by : {author}
+    </div>
+    
+    <article id="article" role="article" class="prose mx-auto mt-8 max-w-5xl">
       <Content />
     </article>
 
@@ -64,15 +67,16 @@ const ogUrl = new URL(
     />
 
   </main>
+  <hr class="border-skin-line mb-44 sm:mb-[75px]" />
   <Footer />
 </Layout>
 
 <style>
   main {
-    @apply mx-auto w-full max-w-3xl px-4 pb-12;
+    @apply mx-auto w-full max-w-5xl px-4 pb-12;
   }
   .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+    @apply text-2xl sm:text-4xl font-bold text-skin-accent;
   }
   .tags-container {
     @apply my-8;

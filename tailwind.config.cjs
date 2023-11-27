@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -37,6 +38,13 @@ module.exports = {
         "card-muted": withOpacity("--color-card-muted"),
       },
     },
+    gradientColorStops: {
+      skin: {
+        fill: withOpacity("--color-fill"),
+        accent: withOpacity("--color-accent"),
+        invert: withOpacity("--color-invert"),
+      },
+    },
     outlineColor: {
       skin: {
         fill: withOpacity("--color-accent"),
@@ -57,7 +65,8 @@ module.exports = {
       transparent: "transparent",
     },
     fontFamily: {
-      mono: ["IBM Plex Mono", "monospace"],
+      PremierLeague: ["'PremierLeague'", ...defaultTheme.fontFamily.sans],
+      PremierLeague2024: ["'PremierLeague2024'", "Arial", "Verdana", "Tahoma"],
     },
     // },
   },
