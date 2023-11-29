@@ -109,7 +109,7 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-skin-card;
+    @apply bg-skin-accent;
   }
 
   /* Handle on hover */

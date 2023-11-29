@@ -1,8 +1,9 @@
 {
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "astro",
-  "frontMatter.preview.host": "http://localhost:4322",
+  "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.content.publicFolder": "public",
+  "frontMatter.snippets.wrapper.enabled": false,
   "frontMatter.content.pageFolders": [
     {
       "title": "blog",
@@ -16,10 +17,12 @@
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "blog",
+      "defaultFileName": "blog-post",
       "pageBundle": false,
       "previewPath": "",
       "filePrefix": null,
-      "clearEmpty": true,
+      "clearEmpty": false,
+      "fileType": "mdx",
       "fields": [
         {
           "title": "Author",
@@ -94,10 +97,12 @@
     },
     {
       "name": "page",
+      "defaultFileName": "page-index",
       "pageBundle": false,
       "previewPath": "",
       "filePrefix": null,
-      "clearEmpty": true,
+      "clearEmpty": false,
+      "fileType": "mdx",
       "fields": [
         {
           "title": "Author",
@@ -118,9 +123,43 @@
           "type": "string",
           "single": true,
           "default": "../layouts/AboutLayout.astro"
-        },
+        }
       ]
     }
   ],
-  "frontMatter.website.host": "https://pesmania.web.id"
+  "frontMatter.website.host": "https://pesmania.web.id",
+  "frontMatter.content.snippets": {
+    "Figure": {
+      "description": "Figure for image content",
+      "body": "<Figure title=\"[[title]]\" src=\"[[&mediaUrl]]\" />",
+      "isMediaSnippet": true
+    },
+    "Link Button": {
+      "description": "Link style button",
+      "body": "<LinkButton title=\"[[title]]\" href=\"[[&url]]\" className=\"bg-skin-accent px-4 rounded-full !decoration-transparent !text-skin-inverted hover:bg-skin-fill border border-skin-accent transition\">[[title]]</LinkButton>",
+      "fields": [
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string",
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "url",
+          "title": "url",
+          "type": "string",
+          "single": true,
+          "default": "FM_SELECTED_TEXT"
+        },
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
+    }
+  }
 }

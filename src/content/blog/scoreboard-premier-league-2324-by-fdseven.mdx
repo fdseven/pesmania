@@ -1,0 +1,88 @@
+---
+author: FDSEVEN
+pubDatetime: 2023-11-26T08:50:53.306Z
+title: Scoreboard Premier League 23/24 by fdseven
+postSlug: scoreboard-premier-league-23-24-fdseven
+featured: false
+draft: false
+tags:
+  - scoreboard
+  - tutorial
+description: post description
+type: blog
+ogImage: /assets/spoiler-img.png
+---
+
+import Figure from "@components/Figure.astro";
+import LinkButton from "@components/LinkButton.astro";
+
+![](/assets/spoiler-img.png)
+
+## Proudly present & release my first custom scoreboard of Premier League 2023
+
+### INSTALATION
+
+This scoreboard using league logo, so you must update EPL logo at livecpk folder or patch folder `"common\render\symbol\emblemLc"`
+
+If you're using EvoWeb Patch like I'm using too, the folder structure shows like image below :
+
+<Figure
+  title="livecpk folder structure"
+  src="/assets/1696847876032.png"
+  className="[&>img]:inline-block"
+/>
+
+Replace all 4 EPL logos at **emblemLc** folder :
+
+- emb_0009_b_l.png
+- emb_0009_b_ll.png
+- emb_0009_w_l.png
+- emb_0009_w_ll.png
+
+This scoreboard also using custom fonts, place epl-font folder to livecpk
+and write this line to sider :
+
+`cpk.root = ".\livecpk\epl-font\standard"`
+
+Optional : <br />
+I also update the luma margin value to default (165) for contrast team name color at modules/ScoreboardServer.lua. And update the kit unicolor from https://teamcolorcodes.com/manchester-city-fc-colors/
+So Machester City will be the light team name color (white color).
+
+CODE : <br />
+`local luma_margin = 165`
+
+Update config file in Man. City P1/P1-EPL (as you have) in kit server folder
+
+CODE : <br />
+`UniColor_Color1= #6CABDD`
+
+**THAT'S IT**
+
+### DOWNLOADS
+
+<div className="flex flex-wrap gap-2">
+  <LinkButton
+    targetNew={true}
+    title="EPL Scoreboard"
+    href="https://modsfire.com/7Nynv6EoeJSZ423"
+    className="bg-skin-accent px-4 rounded-full !decoration-transparent !text-skin-inverted hover:bg-skin-fill border border-skin-accent transition"
+  >
+    EPL Scoreboard
+  </LinkButton>
+  <LinkButton
+    targetNew={true}
+    title="EPL Emblems"
+    href="https://modsfire.com/8Gbl5zyPK0qE2nu"
+    className="bg-skin-accent px-4 rounded-full !decoration-transparent !text-skin-inverted hover:bg-skin-fill border border-skin-accent transition"
+  >
+    EPL Emblems
+  </LinkButton>
+  <LinkButton
+    targetNew={true}
+    title="EPL Fonts"
+    href="https://modsfire.com/w5HsD97ygXzK1Al"
+    className="bg-skin-accent px-4 rounded-full !decoration-transparent !text-skin-inverted hover:bg-skin-fill border border-skin-accent transition"
+  >
+    EPL Fonts
+  </LinkButton>
+</div>
