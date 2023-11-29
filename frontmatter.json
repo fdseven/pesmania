@@ -136,7 +136,14 @@
     },
     "Link Button": {
       "description": "Link style button",
-      "body": "<LinkButton title=\"[[title]]\" href=\"[[&url]]\" className=\"bg-skin-accent px-4 rounded-full !decoration-transparent !text-skin-inverted hover:bg-skin-fill border border-skin-accent transition\">[[title]]</LinkButton>",
+      "body": [
+        "<LinkButton ",
+        "title=\"[[title]]\" ",
+        "href=\"[[&url]]\" ",
+        "className=\"[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition\">",
+        "[[title]]",
+        "</LinkButton>"
+      ],
       "fields": [
         {
           "name": "title",
