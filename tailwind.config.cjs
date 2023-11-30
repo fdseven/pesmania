@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require("tailwindcss/plugin");
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -16,6 +17,8 @@ module.exports = {
     // if one breakpoint is not enough for you
     screens: {
       sm: "640px",
+      md: "768px",
+      lg: "1024px"
     },
 
     // Uncomment the following extend
@@ -70,5 +73,16 @@ module.exports = {
     },
     // },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(function({ addComponents }) {
+      addComponents({
+        '.cover-post': {
+          left: 'calc(-50vw + 502px)',
+          right: 'calc(-50vw + 502px)',
+        },
+      })
+    })
+  ]
+
 };

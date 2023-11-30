@@ -19,7 +19,8 @@
       "name": "blog",
       "defaultFileName": "blog-post",
       "pageBundle": false,
-      "previewPath": "",
+      "template": "[[workspace]]/.frontmatter/templates/blog-post.mdx",
+      "previewPath": "/posts/",
       "filePrefix": null,
       "clearEmpty": false,
       "fileType": "mdx",
@@ -53,7 +54,7 @@
           "title": "Slug",
           "name": "postSlug",
           "type": "string",
-          "default": "slugified title"
+          "default": "{{slug}}"
         },
         {
           "title": "Featured",
@@ -86,7 +87,7 @@
           "name": "ogImage",
           "type": "image",
           "isPreviewImage": true,
-          "default": ""
+          "default": "/assets/forrest-gump-quote.webp"
         },
         {
           "title": "lastmod",

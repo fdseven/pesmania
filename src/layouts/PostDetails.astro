@@ -6,7 +6,17 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
-import { SocialShare } from "astro-social-share";
+
+import { 
+  FacebookShareButton,
+  LinkedInShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+  SocialShare
+} from "astro-social-share";
+
+const BUTTONS = [TwitterShareButton, FacebookShareButton, LinkedInShareButton, EmailShareButton, RedditShareButton]
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -34,7 +44,7 @@ const ogUrl = new URL(
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto mt-24 flex w-full max-w-5xl justify-start px-2">
+  <div class="mx-auto mt-16 flex w-full max-w-5xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
@@ -47,26 +57,42 @@ const ogUrl = new URL(
     </button>
   </div>
   <main id="main-content" class="bg-skin-fill z-10">
-    <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-    <div class="flex items-center">
-      <Datetime datetime={pubDatetime} size="lg" className="my-2 mr-4" />by : {author}
+    <div class="grid lg:grid-cols-[auto_300px] gap-8">
+      <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
+      <div class="flex flex-col">
+        <Datetime datetime={pubDatetime} size="lg" className="mb-2" />by : {author}
+      </div>
     </div>
+    
+    
     
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-5xl">
       <Content />
     </article>
 
-    <hr class="border-skin-line mt-8" />
+    <hr class="border-skin-line mt-10" />
 
     <ul class="tags-container">
       {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
     </ul>
-
+<!-- 
     <SocialShare
       description="Description of the page/post"
       via="YourTwitterAccount"
       title="Page Title"
-    />
+
+    /> -->
+
+    <div class="flex items-center gap-4">
+      SHARE TO
+      <SocialShare
+        buttons={BUTTONS}
+        description="Description of the page/post"
+        via="YourTwitterAccount"
+        title="Page Title"
+      />
+    </div>
+   
 
   </main>
   <hr class="border-skin-line mb-44 sm:mb-[75px]" />
@@ -84,3 +110,20 @@ const ogUrl = new URL(
     @apply my-8;
   }
 </style>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+
+<script is:inline >
+  
+
+  var image = document.querySelector('.thumbnail');
+  new simpleParallax(image, {
+    overflow: true,
+    orientation: 'down'
+  });
+
+  var image2 = document.querySelectorAll('.img');
+  new simpleParallax(image2, {
+    overflow: true,
+  });
+</script>

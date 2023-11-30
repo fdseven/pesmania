@@ -8,7 +8,7 @@ const { src, title, className } = Astro.props;
 ---
 
 <figure class={className}>
-    <img src={src} alt={title} title={title} />
+    <img src={src} alt={title} title={title} class="img" />
     <figcaption class="-mt-5 ml-4 relative opacity-100">
       <span class="bg-skin-accent text-skin-inverted px-3 py-2 inline-block">{title}</span>
     </figcaption>
