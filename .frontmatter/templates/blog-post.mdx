@@ -1,23 +1,34 @@
 ---
 author: fdseven
-pubDatetime: 2023-11-26T08:50:53.306Z
-title: Scoreboard Premier League 23/24 by fdseven
-postSlug: scoreboard-premier-league-23-24-fdseven
+pubDatetime: 2023-11-29T20:37:42.880Z
+title: The New Scoreboard Premier Laegue 2023 PES 2021
+postSlug: the-new-scoreboard-premier-laegue-2023
 featured: false
 draft: false
 tags:
-  - scoreboard
-  - tutorial
-description: Proudly present & release my first custom scoreboard of Premier League 2023
+  - post
+description: post description
 type: blog
 ogImage: /assets/spoiler-img.png
+lastmod: 2023-11-29T20:37:42.880Z
+isFeatured: false
 ---
 
-import Figure from "@components/Figure.astro";
-import LinkButton from "@components/LinkButton.astro";
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 -mt-48 md:mt-0 lg:-mt-40">
+  <div className="relative lg:mr-8">
+    <img transition:persist
+      src={frontmatter.ogImage}
+      className="cover w-full aspect-[video] object-cover"
+    />
+  </div>
+</div>
 
-<div className="relative lg:h-[500px]">
-  <div className="lg:absolute top-0 bottom-0 overflow-hidden lg:cover-post">
-    <img src={frontmatter.ogImage} className="thumbnail w-full object-contain mb-0 -translate-y-[31px]" />
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 [&>h2]:!mt-0">
+  CONTENT HERE
+</div>
+
+<div class="col-start-1 col-span-8 lg:col-start-7 lg:col-span-2 text-skin-accent">
+  <div class="lg:sticky lg:top-20 min-w-[300px]">
+    <div class="text-center">Advertisement</div>
   </div>
 </div>

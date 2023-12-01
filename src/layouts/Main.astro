@@ -19,26 +19,28 @@ const { props } = Astro;
 
 <Breadcrumbs />
 <main id="main-content">
-  {
-    "titleTransition" in props ? (
-      <h1>
-        {props.pageTitle[0]}
-        <span transition:name={props.titleTransition}>
-          {props.pageTitle[1]}
-        </span>
-      </h1>
-    ) : (
-      <h1>{props.pageTitle}</h1>
-    )
-  }
-  <p>{props.pageDesc}</p>
-  <slot />
+  <div class="col-span-8 sm:col-start-2 sm:col-span-6">
+    {
+      "titleTransition" in props ? (
+        <h1>
+          {props.pageTitle[0]}
+          <span transition:name={props.titleTransition}>
+            {props.pageTitle[1]}
+          </span>
+        </h1>
+      ) : (
+        <h1>{props.pageTitle}</h1>
+      )
+    }
+    <p>{props.pageDesc}</p>
+    <slot />
+  </div>
 </main>
 <hr class="border-skin-line mb-44 sm:mb-[75px]" />
 
 <style>
   #main-content {
-    @apply mx-auto w-full max-w-5xl px-4 pb-12 z-10 bg-skin-fill;
+    @apply mx-auto w-full grid grid-cols-8 gap-8 px-4 pb-12 z-10 bg-skin-fill;
   }
   #main-content h1 {
     @apply text-2xl font-light sm:text-3xl;

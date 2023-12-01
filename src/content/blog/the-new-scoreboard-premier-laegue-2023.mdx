@@ -1,12 +1,15 @@
 ---
-author: FDSEVEN
+author: fdseven
 pubDatetime: 2023-11-29T20:37:42.880Z
 title: The New Scoreboard Premier Laegue 2023 PES 2021
 postSlug: the-new-scoreboard-premier-laegue-2023
 featured: false
 draft: false
 tags:
-  - post
+  - PES 2021
+  - scoreboard
+  - tutorial
+  - downloads
 description: post description
 type: blog
 ogImage: /assets/spoiler-img.png
@@ -16,18 +19,37 @@ isFeatured: false
 
 import Figure from "@components/Figure.astro";
 import LinkButton from "@components/LinkButton.astro";
+import {
+  FacebookShareButton,
+  LinkedInShareButton,
+  RedditShareButton,
+  TwitterShareButton,
+  EmailShareButton,
+} from "astro-social-share";
 
-<div className="relative lg:h-[500px]">
-  <div className="lg:absolute top-0 bottom-0 overflow-hidden lg:cover-post">
+export const BUTTONS = [
+  TwitterShareButton,
+  FacebookShareButton,
+  LinkedInShareButton,
+  EmailShareButton,
+  RedditShareButton,
+];
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 -mt-48 md:mt-0 lg:-mt-40">
+  <div className="relative lg:mr-8">
     <img
+      transition:persist
       src={frontmatter.ogImage}
-      className="thumbnail w-full object-contain mb-0 -translate-y-[31px]"
+      className="cover w-full aspect-[video] object-cover"
     />
   </div>
 </div>
 
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 [&>h2]:!mt-0">
+
 ## Proudly present & release my first custom scoreboard of Premier League 2023
 
+{" "}
 <hr />
 
 ### INSTALATION
@@ -36,6 +58,7 @@ This scoreboard using league logo, so you must update EPL logo at livecpk folder
 
 If you're using EvoWeb Patch like I'm using too, the folder structure shows like image below :
 
+{" "}
 <Figure
   title="livecpk folder structure"
   src="/assets/1696847876032.png"
@@ -55,50 +78,62 @@ and write this line to sider :
 `cpk.root = ".\livecpk\epl-font\standard"`
 
 Optional : <br />
-I also update the luma margin value to default (165) for contrast team name color at modules/ScoreboardServer.lua. And update the kit unicolor from https://teamcolorcodes.com/manchester-city-fc-colors/
+I also update the luma margin value to default (165) for contrast team name color at modules/ScoreboardServer.lua. And update the kit unicolor of Manchester City from https://teamcolorcodes.com/manchester-city-fc-colors/
 So Machester City will be the light team name color (white color).
 
 CODE : <br />
 `local luma_margin = 165`
 
-Update config file in Man. City P1/P1-EPL (as you have) in kit server folder
+And then update config file in Man. City kit folder --> P1/P1-EPL (as you have) in kit server folder
 
 CODE : <br />
 `UniColor_Color1= #6CABDD`
 
 **THAT'S IT ALL**
 
+Here's some previews
+
+{" "}
 <Figure title="Preview 1" src="/assets/spoiler-img.png" />
 
+{" "}
 <Figure title="Preview 2" src="/assets/spoiler-img2.png" />
 
+{" "}
 <Figure title="Preview 3" src="/assets/spoiler-img3.png" />
 
 ### DOWNLOADS
 
-<div className="flex flex-wrap gap-2">
-  <LinkButton
-    targetNew={true}
-    title="EPL Scoreboard"
-    href="https://modsfire.com/7Nynv6EoeJSZ423"
-    className="[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition"
-  >
-    EPL Scoreboard
-  </LinkButton>
-  <LinkButton
-    targetNew={true}
-    title="EPL Emblems"
-    href="https://modsfire.com/8Gbl5zyPK0qE2nu"
-    className="[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition"
-  >
-    EPL Emblems
-  </LinkButton>
-  <LinkButton
-    targetNew={true}
-    title="EPL Fonts"
-    href="https://modsfire.com/w5HsD97ygXzK1Al"
-    className="[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition"
-  >
-    EPL Fonts
-  </LinkButton>
+  <div className="flex flex-wrap gap-2">
+    <LinkButton
+      targetNew={true}
+      title="EPL Scoreboard"
+      href="https://modsfire.com/7Nynv6EoeJSZ423"
+      className="[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p>svg]:text-skin-inverted [&>p:hover>svg]:text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition"
+    >
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z" fill="currentColor"></path> </g></svg>EPL Scoreboard
+    </LinkButton>
+    <LinkButton
+      targetNew={true}
+      title="EPL Emblems"
+      href="https://modsfire.com/8Gbl5zyPK0qE2nu"
+      className="[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p>svg]:text-skin-inverted [&>p:hover>svg]:text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition"
+    >
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z" fill="currentColor"></path> </g></svg>EPL Emblems
+    </LinkButton>
+    <LinkButton
+      targetNew={true}
+      title="EPL Fonts"
+      href="https://modsfire.com/w5HsD97ygXzK1Al"
+      className="[&>p]:!m-0 [&>p]:!px-4 [&>p]:!text-skin-inverted [&>p:hover]:!text-skin-accent [&>p>svg]:text-skin-inverted [&>p:hover>svg]:text-skin-accent [&>p]:bg-skin-accent [&>p]:rounded-full !decoration-transparent [&>p]:hover:bg-skin-fill [&>p]:border [&>p]:border-skin-accent [&>p]:transition"
+    >
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z" fill="currentColor"></path> </g></svg>EPL Fonts
+    </LinkButton>
+  </div>
+</div>
+
+<div class="col-start-1 col-span-8 lg:col-start-7 lg:col-span-2 text-skin-accent">
+  <div class="lg:sticky lg:top-20 min-w-[300px]">
+    <div class="text-center">Advertisement</div>
+  </div>
 </div>

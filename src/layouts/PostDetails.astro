@@ -44,9 +44,9 @@ const ogUrl = new URL(
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto mt-16 flex w-full max-w-5xl justify-start px-2">
+  <div class="mx-auto mt-20 sm:mt-24 w-full px-3 lg:px-10">
     <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
+      class="focus-outline mb-2 flex hover:opacity-75"
       onclick="history.back()"
     >
       <svg xmlns="http://www.w3.org/2000/svg"
@@ -56,44 +56,47 @@ const ogUrl = new URL(
       </svg><span>Go back</span>
     </button>
   </div>
-  <main id="main-content" class="bg-skin-fill z-10">
-    <div class="grid lg:grid-cols-[auto_300px] gap-8">
-      <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
-      <div class="flex flex-col">
-        <Datetime datetime={pubDatetime} size="lg" className="mb-2" />by : {author}
+
+  <main id="main-content" class="mx-auto w-full px-4 pb-12 z-10 bg-skin-fill">
+    
+    <section class="max-w-full pb-12 px-0">
+
+      <article id="article" role="article" class="mx-auto mt-6 max-w-full grid grid-cols-8 grid-rows-2 gap-8 prose">
+        <div class="col-span-8 md:row-span-2 md:col-span-8 lg:ml-8 z-10">
+          <div class="grid lg:grid-cols-2 gap-8">
+            <h1 transition:name={slugifyStr(title)} class="post-title flex items-center w-full bg-skin-accent/75 backdrop-blur-md p-4 lg:min-h-[244px] lg:p-8">{title}</h1>
+            <div class="flex flex-col lg:mr-8 lg:items-end text-skin-base">
+              <Datetime datetime={pubDatetime} size="sm" className="bg-skin-fill pl-2" />
+              <span class="bg-skin-fill pl-2">by : {author}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-8 lg:col-start-1 lg:col-span-1 lg:ml-8 flex place-self-start md:place-self-end lg:place-self-auto lg:flex-col items-center lg:row-span-3">
+          <div class="gap-4 text-skin-base sticky top-40 [&>div]:my-0 lg:w-12 lg:[&>div]:mt-5 lg:[&>div>a]:mb-3 lg:[&>div>a]:block md:-mt-28 lg:mt-0">
+            <SocialShare
+              buttons={BUTTONS}
+              description="Description of the page/post"
+              via="YourTwitterAccount"
+              title="Page Title"
+            />
+          </div>
+        </div>
+        <Content />     
+      </article> 
+      
+    </section>
+
+    <div class="mx-auto max-w-full grid grid-cols-8 gap-8">
+      <div class="col-span-8 md:col-start-2 md:col-span-6">
+        <hr class="border-skin-line" />
+
+        <ul class="tags-container">
+          {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
+        </ul>
+      
       </div>
     </div>
     
-    
-    
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-5xl">
-      <Content />
-    </article>
-
-    <hr class="border-skin-line mt-10" />
-
-    <ul class="tags-container">
-      {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
-    </ul>
-<!-- 
-    <SocialShare
-      description="Description of the page/post"
-      via="YourTwitterAccount"
-      title="Page Title"
-
-    /> -->
-
-    <div class="flex items-center gap-4">
-      SHARE TO
-      <SocialShare
-        buttons={BUTTONS}
-        description="Description of the page/post"
-        via="YourTwitterAccount"
-        title="Page Title"
-      />
-    </div>
-   
-
   </main>
   <hr class="border-skin-line mb-44 sm:mb-[75px]" />
   <Footer />
@@ -101,29 +104,41 @@ const ogUrl = new URL(
 
 <style>
   main {
-    @apply mx-auto w-full max-w-5xl px-4 pb-12;
+    @apply mx-auto w-full px-4 pb-12;
   }
   .post-title {
-    @apply text-2xl sm:text-4xl font-bold;
+    @apply text-3xl leading-tight md:leading-tight md:text-5xl font-black !text-[#fff];
   }
   .tags-container {
-    @apply my-8;
+    @apply my-2;
   }
 </style>
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
 
-<script is:inline >
+<script>
+
+  function imgParallax(){
+   
+        var image = document.querySelector('.cover');
+        var image2 = document.querySelectorAll('.img');
+        // @ts-ignore
+        new simpleParallax(image, {
+          overflow: true,
+          orientation: 'down',
+          maxTransition: 70
+        });
+        // @ts-ignore
+        new simpleParallax(image2, {
+          overflow: true,
+          orientation: 'up',
+          maxTransition: 60
+        });
+  }
   
+  imgParallax();
 
-  var image = document.querySelector('.thumbnail');
-  new simpleParallax(image, {
-    overflow: true,
-    orientation: 'down'
-  });
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", imgParallax);
 
-  var image2 = document.querySelectorAll('.img');
-  new simpleParallax(image2, {
-    overflow: true,
-  });
 </script>

@@ -14,6 +14,8 @@ tags:
 description: "EXAMPLE POST: Developing a terminal-like website using ReactJS, TypeScript and Styled-Components. Includes features like autocomplete, multiple themes, command hints etc."
 ---
 
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 [&>h2]:!mt-0">
+
 > This article is originally from my [blog post](https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react). I put this article to demonstrate how you can write blog posts/articles using AstroPaper theme.
 
 Developing a terminal-like website using ReactJS, TypeScript and Styled-Components. Includes features like autocomplete, multiple themes, command hints etc.
@@ -84,3 +86,5 @@ This is a really fun project, and one special part of this project is I had to f
 
 - Website: [https://terminal.satnaing.dev/](https://terminal.satnaing.dev/ "https://terminal.satnaing.dev/")
 - Repo: [https://github.com/satnaing/terminal-portfolio](https://github.com/satnaing/terminal-portfolio "https://github.com/satnaing/terminal-portfolio")
+
+</div>

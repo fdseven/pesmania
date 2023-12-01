@@ -23,7 +23,11 @@ module.exports = {
 
     // Uncomment the following extend
     // if existing Tailwind color palette will be used
-
+    extend: {
+      maxWidth: {
+        '8xl': '90rem',
+      }
+    },
     // extend: {
     textColor: {
       skin: {
@@ -75,14 +79,6 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
-    plugin(function({ addComponents }) {
-      addComponents({
-        '.cover-post': {
-          left: 'calc(-50vw + 502px)',
-          right: 'calc(-50vw + 502px)',
-        },
-      })
-    })
   ]
 
 };

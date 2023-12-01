@@ -168,6 +168,19 @@
           "default": ""
         }
       ]
+    },
+    "Text align": {
+      "description": "Alignment for text",
+      "body": "<div class=\"\\text-center\">[[title]]</div>",
+      "fields": [
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
     }
   }
 }
