@@ -13,6 +13,7 @@ import {
   RedditShareButton,
   TwitterShareButton,
   EmailShareButton,
+  SocialShare,
 } from "astro-social-share";
 
 const BUTTONS = [TwitterShareButton, FacebookShareButton, LinkedInShareButton, EmailShareButton, RedditShareButton]
@@ -67,6 +68,11 @@ const ogUrl = new URL(
             <div class="flex flex-col lg:mr-8 lg:items-end text-skin-base">
               <Datetime datetime={pubDatetime} size="sm" className="lg:bg-skin-fill pl-2" />
               <span class="lg:bg-skin-fill pl-2">by : {author}</span>
+              <SocialShare
+  description="Description of the page/post"
+  via="YourTwitterAccount"
+  title="Page Title"
+/>
             </div>
           </div>
         </div>
