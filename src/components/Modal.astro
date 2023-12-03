@@ -1,0 +1,63 @@
+---
+const {modalId, btnId, open, className} = Astro.props;
+---
+
+<button id={btnId} class={className}>{open}</button>
+
+<dialog id={modalId} class="group backdrop-blur-md isolate pointer-events-none fixed grid h-full max-h-none w-full max-w-none justify-items-center opacity-0 overscroll-contain z-50 text-inherit duration-200 ease-out transition-all overflow-y-hidden items-center m-0 p-0 inset-0 bg-black/70 backdrop:animate-fade backdrop:animate-ease-out backdrop:animate-duration-200 open:pointer-events-auto open:visible open:opacity-100">
+    <div class="col-start-1 row-start-1 min-w-[90vw] lg:min-w-[500px] bg-skin-fill transition ease-in-out duration-200 shadow-2xl overflow-y-auto overscroll-contain p-6 scale-90 group-open:scale-100">
+        <slot name="main" />
+        <slot name="close" />
+    </div>
+    <button slot='close' class="absolute top-4 right-4 closeModal">
+        <svg class="svg-icon text-white w-8 h-8" viewBox="0 0 20 20">
+            <path fill="currentColor" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+        </svg>
+    </button>
+    <div class="-z-[1] col-start-1 row-start-1 grid self-stretch justify-self-stretch">
+      <button class="cursor-default closeModal"></button>
+    </div>
+</dialog>
+
+<script define:vars={{ modalId, btnId }}>
+    
+    var openDialogButton = document.getElementById(btnId);
+    var closeDialogButton = document.querySelectorAll('.closeModal');
+    var myDialog = document.getElementById(modalId);
+
+    openDialogButton.addEventListener('click', () => {
+        myDialog.showModal(); // Display the dialog
+    });
+    
+    closeDialogButton.forEach(button => {
+        button.addEventListener('click', () => {
+            myDialog.close(); // Close the dialog
+            stopVideos();
+        });
+    });
+    
+    /**
+    * Stop all iframes or HTML5 <video>'s from playing
+    */
+    var stopVideos = function () {
+        var videos = document.querySelectorAll('iframe, video');
+        Array.prototype.forEach.call(videos, function (video) {
+            if (video.tagName.toLowerCase() === 'video') {
+            video.pause();
+            } else {
+            var src = video.src;
+            video.src = src;
+            }
+        });
+    };
+
+    var stopAllYouTubeVideos = () => {
+        var iframes = document.querySelectorAll('iframe');
+        Array.prototype.forEach.call(iframes, iframe => {
+        iframe.contentWindow.postMessage(JSON.stringify({ event: 'command',
+            func: 'stopVideo' }), '*');
+        });
+    }
+    // stopAllYouTubeVideos();
+
+</script>

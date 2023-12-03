@@ -6,19 +6,26 @@ postSlug: the-new-scoreboard-premier-laegue-2023
 featured: false
 draft: false
 tags:
-  - post
-description: post description
+  - PES 2021
+  - scoreboard
+  - tutorial
+  - downloads
+description: Proudly present & release my first custom scoreboard of Premier League 2023
 type: blog
 ogImage: /assets/spoiler-img.png
 lastmod: 2023-11-29T20:37:42.880Z
 isFeatured: false
 ---
 
-<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 -mt-48 md:mt-0 lg:-mt-40">
-  <div className="relative lg:mr-8">
-    <img transition:persist
+import Figure from "@components/Figure.astro";
+import LinkButton from "@components/LinkButton.astro";
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div className="relative lg:-mr-8">
+    <img
+      transition:persist
       src={frontmatter.ogImage}
-      className="cover w-full aspect-[video] object-cover"
+      className="cover w-full aspect-video object-cover"
     />
   </div>
 </div>

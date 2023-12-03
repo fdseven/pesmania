@@ -26,56 +26,54 @@ module.exports = {
     extend: {
       maxWidth: {
         '8xl': '90rem',
-      }
-    },
-    // extend: {
-    textColor: {
-      skin: {
-        base: withOpacity("--color-text-base"),
-        accent: withOpacity("--color-accent"),
-        inverted: withOpacity("--color-fill"),
       },
-    },
-    backgroundColor: {
-      skin: {
-        fill: withOpacity("--color-fill"),
-        accent: withOpacity("--color-accent"),
-        inverted: withOpacity("--color-text-base"),
-        card: withOpacity("--color-card"),
-        "card-muted": withOpacity("--color-card-muted"),
+      textColor: {
+        skin: {
+          base: withOpacity("--color-text-base"),
+          accent: withOpacity("--color-accent"),
+          inverted: withOpacity("--color-fill"),
+        },
       },
-    },
-    gradientColorStops: {
-      skin: {
-        fill: withOpacity("--color-fill"),
-        accent: withOpacity("--color-accent"),
-        invert: withOpacity("--color-invert"),
+      backgroundColor: {
+        skin: {
+          fill: withOpacity("--color-fill"),
+          accent: withOpacity("--color-accent"),
+          inverted: withOpacity("--color-text-base"),
+          card: withOpacity("--color-card"),
+          "card-muted": withOpacity("--color-card-muted"),
+        },
       },
-    },
-    outlineColor: {
-      skin: {
-        fill: withOpacity("--color-accent"),
+      gradientColorStops: {
+        skin: {
+          fill: withOpacity("--color-fill"),
+          accent: withOpacity("--color-accent"),
+          invert: withOpacity("--color-invert"),
+        },
       },
-    },
-    borderColor: {
-      skin: {
-        line: withOpacity("--color-border"),
-        fill: withOpacity("--color-text-base"),
-        accent: withOpacity("--color-accent"),
+      outlineColor: {
+        skin: {
+          fill: withOpacity("--color-accent"),
+        },
       },
-    },
-    fill: {
-      skin: {
-        base: withOpacity("--color-text-base"),
-        accent: withOpacity("--color-accent"),
+      borderColor: {
+        skin: {
+          line: withOpacity("--color-border"),
+          fill: withOpacity("--color-text-base"),
+          accent: withOpacity("--color-accent"),
+        },
       },
-      transparent: "transparent",
+      fill: {
+        skin: {
+          base: withOpacity("--color-text-base"),
+          accent: withOpacity("--color-accent"),
+        },
+        transparent: "transparent",
+      },
     },
     fontFamily: {
       PremierLeague: ["'PremierLeague'", ...defaultTheme.fontFamily.sans],
       PremierLeague2024: ["'PremierLeague2024'", "Arial", "Verdana", "Tahoma"],
     },
-    // },
   },
   plugins: [
     require("@tailwindcss/typography"),

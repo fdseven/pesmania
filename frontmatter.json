@@ -181,6 +181,19 @@
           "default": ""
         }
       ]
+    },
+    "Video": {
+      "description": "Video content",
+      "body": [
+        "<video ",
+        "controls ",
+        ">",
+        "<source ",
+        "src=\"[[&mediaUrl]]\" ",
+        "class=\"aspect-video\" />",
+        "</video>"
+      ],
+      "isMediaSnippet": true
     }
   }
 }
