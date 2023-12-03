@@ -19,8 +19,6 @@ isFeatured: false
 
 import Figure from "@components/Figure.astro";
 import LinkButton from "@components/LinkButton.astro";
-import Modal from "@components/Modal.astro";
-// import Popup from "@components/Popup.astro";
 
 <div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
   <div className="relative lg:-mr-8">
@@ -83,40 +81,6 @@ Here's some previews
 <Figure title="Preview 2" src="/assets/spoiler-img2.png" />
 
 <Figure title="Preview 3" src="/assets/spoiler-img3.png" />
-
-<Modal btnId="btnModal" modalId="modalIframe" open="Open modal">
-  <main slot="main">
-    <div>
-      <iframe
-        class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[720px] w-[100vw] lg:max-w-7xl -m-6"
-        width="720"
-        height="315"
-        src="https://www.youtube.com/embed/LFrQ0kfRY_I?si=nYSjp87b0ArJxsXB"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </main>
-</Modal>
-
-<Modal btnId="btnModal2" modalId="modalIframe2" open="Open modal">
-  <main slot="main">
-    <video
-      class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[715px] w-[100vw] lg:max-w-7xl -m-6"
-      controls
-    >
-      <source
-        src="/assets/Napoli-Inter%203-0%2015a%20Giornata%20Serie%20A%20TIM%2016-17%20-%20HighLights.mp4"
-        class="aspect-video"
-      />
-    </video>
-  </main>
-  {/* <button slot='close' class='closeModal'>Close modal</button> */}
-</Modal>
-
-{/* <Popup timer={2} imageURL={'your image url here'} href={'your link'} description={'the description for aria-label'} /> */}
 
 ### DOWNLOADS
 
