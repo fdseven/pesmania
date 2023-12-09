@@ -1,63 +1,117 @@
 ---
-const {modalId, btnId, open, className} = Astro.props;
+const {embedYT, title, modalId, modalBtn, className} = Astro.props;
+const classEmbed = embedYT === "yes" ? "[&>form>.closee]:-mr-4 [&>form>.closee]:-mt-[80px] [&>form>.closee>button>svg]:text-white lg:[&>form>.closee]:-mr-[60px] lg:[&>form>.closee]:mt-auto" : "[&>form>.konten]:max-h-[calc(100vh-75px)] [&>form>.konten]:overflow-y-auto";
+const classVB = embedYT === "yes" ? "stopVideoIframe" : "";
 ---
 
-<button id={btnId} class={className}>{open}</button>
+<button class={className} onclick={`id_${modalId}.showModal()`}>
+    {
+        embedYT === "yes" ?
+        <span class="bg-black rounded-full w-20 h-20 p-3 inline-block">
+            <svg class="w-full h-full fill-skin-accent text-skin-accent" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path class="fill-skin-accent" fill-rule="evenodd" clip-rule="evenodd" d="M11.0748 7.50835C9.74622 6.72395 8.25 7.79065 8.25 9.21316V14.7868C8.25 16.2093 9.74622 17.276 11.0748 16.4916L15.795 13.7048C17.0683 12.953 17.0683 11.047 15.795 10.2952L11.0748 7.50835ZM9.75 9.21316C9.75 9.01468 9.84615 8.87585 9.95947 8.80498C10.0691 8.73641 10.1919 8.72898 10.3122 8.80003L15.0324 11.5869C15.165 11.6652 15.25 11.8148 15.25 12C15.25 12.1852 15.165 12.3348 15.0324 12.4131L10.3122 15.2C10.1919 15.271 10.0691 15.2636 9.95947 15.195C9.84615 15.1242 9.75 14.9853 9.75 14.7868V9.21316Z" fill="currentColor"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C6.06294 1.25 1.25 6.06294 1.25 12C1.25 17.9371 6.06294 22.75 12 22.75C17.9371 22.75 22.75 17.9371 22.75 12C22.75 6.06294 17.9371 1.25 12 1.25ZM2.75 12C2.75 6.89137 6.89137 2.75 12 2.75C17.1086 2.75 21.25 6.89137 21.25 12C21.25 17.1086 17.1086 21.25 12 21.25C6.89137 21.25 2.75 17.1086 2.75 12Z" fill="currentColor"></path> </g></svg> 
+        </span>
+        : <span class="border border-skin-accent text-skin-accent px-3 py-2 rounded-sm flex items-center">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="scale-125 sm:scale-100 sm:mr-1 fill-skin-accent hidden"
+            ><path
+                d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
+            ></path>
+            </svg>
+            <span>{modalBtn}</span></span>
+    } 
+</button>
 
-<dialog id={modalId} class="group backdrop-blur-md isolate pointer-events-none fixed grid h-full max-h-none w-full max-w-none justify-items-center opacity-0 overscroll-contain z-50 text-inherit duration-200 ease-out transition-all overflow-y-hidden items-center m-0 p-0 inset-0 bg-black/70 backdrop:animate-fade backdrop:animate-ease-out backdrop:animate-duration-200 open:pointer-events-auto open:visible open:opacity-100">
-    <div class="col-start-1 row-start-1 min-w-[90vw] lg:min-w-[500px] bg-skin-fill transition ease-in-out duration-200 shadow-2xl overflow-y-auto overscroll-contain p-6 scale-90 group-open:scale-100">
-        <slot name="main" />
-        <slot name="close" />
-    </div>
-    <button slot='close' class="absolute top-4 right-4 closeModal">
-        <svg class="svg-icon text-white w-8 h-8" viewBox="0 0 20 20">
-            <path fill="currentColor" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
-        </svg>
-    </button>
-    <div class="-z-[1] col-start-1 row-start-1 grid self-stretch justify-self-stretch">
-      <button class="cursor-default closeModal"></button>
-    </div>
+<dialog id={`id_${modalId}`} class={`group overflow-hidden backdrop-blur-md isolate pointer-events-none fixed grid h-full max-h-none w-full max-w-none justify-items-center opacity-0 overscroll-contain z-50 text-inherit duration-200 ease-out transition-all overflow-y-hidden items-center m-0 p-0 inset-0 bg-black/75 backdrop:animate-fade backdrop:animate-ease-out backdrop:animate-duration-200 open:pointer-events-auto open:visible open:opacity-100 ${classEmbed}`}>
+    <form method="dialog" class="relative col-start-1 row-start-1 min-w-[90vw] lg:min-w-[500px] max-h-[100vh] bg-skin-fill transition ease-in-out duration-200 shadow-2xl overscroll-contain scale-90 group-open:scale-100">
+        <div class={`fixed top-0 h-16 z-20 py-3 right-0 w-full px-2 flex flex-col flex-auto items-end justify-center closee`}>
+            <button slot='close' class={`sticky ${classVB}`}>
+                <svg class="svg-icon text-skin-base w-6 h-6 mr-2 mb-2 place-self-end hover:text-skin-accent transition duration-300" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="currentColor" d="M15.1 3.1l-2.2-2.2-4.9 5-4.9-5-2.2 2.2 5 4.9-5 4.9 2.2 2.2 4.9-5 4.9 5 2.2-2.2-5-4.9z"></path> </g></svg>
+            </button>
+        </div>
+        {title && title.trim() !== '' && (<h3 class="sticky top-0 font-bold not-italic inline-block line-clamp-1 w-full px-6 py-4 !my-0 bg-skin-fill z-10 border-b border-b-skin-line">{title}</h3>)}
+        <div class="relative p-6 konten [&>main>div>iframe]:max-w-[90vw] [&>main>div>iframe]:max-h-[50.25vw] [&>main>div>iframe]:h-[100vh] [&>main>div>iframe]:w-[100vw] xl:[&>main>div>iframe]:max-h-[720px] xl:[&>main>div>iframe]:max-w-7xl [&>main>div>iframe]:-m-6">    
+            {
+                embedYT === "yes" ? 
+                <div class="playVideo absolute left-1/2 top-1/2 -m-10 cursor-pointer row-start-1 col-start-1 place-self-center z-10 w-20 h-20 p-3 bg-black rounded-full hover:scale-110 transition duration-300">
+                    <svg class="w-full h-full fill-skin-accent text-skin-accent" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path class="fill-skin-accent" fill-rule="evenodd" clip-rule="evenodd" d="M11.0748 7.50835C9.74622 6.72395 8.25 7.79065 8.25 9.21316V14.7868C8.25 16.2093 9.74622 17.276 11.0748 16.4916L15.795 13.7048C17.0683 12.953 17.0683 11.047 15.795 10.2952L11.0748 7.50835ZM9.75 9.21316C9.75 9.01468 9.84615 8.87585 9.95947 8.80498C10.0691 8.73641 10.1919 8.72898 10.3122 8.80003L15.0324 11.5869C15.165 11.6652 15.25 11.8148 15.25 12C15.25 12.1852 15.165 12.3348 15.0324 12.4131L10.3122 15.2C10.1919 15.271 10.0691 15.2636 9.95947 15.195C9.84615 15.1242 9.75 14.9853 9.75 14.7868V9.21316Z" fill="currentColor"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.25C6.06294 1.25 1.25 6.06294 1.25 12C1.25 17.9371 6.06294 22.75 12 22.75C17.9371 22.75 22.75 17.9371 22.75 12C22.75 6.06294 17.9371 1.25 12 1.25ZM2.75 12C2.75 6.89137 6.89137 2.75 12 2.75C17.1086 2.75 21.25 6.89137 21.25 12C21.25 17.1086 17.1086 21.25 12 21.25C6.89137 21.25 2.75 17.1086 2.75 12Z" fill="currentColor"></path> </g></svg>
+                </div>
+                : null
+            }
+            <slot name="main" />
+            <slot name="close" />
+        </div>
+    </form> 
+    <form method="dialog" class="-z-[1] col-start-1 row-start-1 grid self-stretch justify-self-stretch">
+      <button class={`cursor-default ${classVB}`}></button>
+    </form>
 </dialog>
 
-<script define:vars={{ modalId, btnId }}>
-    
-    var openDialogButton = document.getElementById(btnId);
-    var closeDialogButton = document.querySelectorAll('.closeModal');
-    var myDialog = document.getElementById(modalId);
+<script is:inline>
 
-    openDialogButton.addEventListener('click', () => {
-        myDialog.showModal(); // Display the dialog
-    });
-    
+    var closeDialogButton = document.querySelectorAll('.stopVideoIframe');
+    var playBtn = document.querySelectorAll('.playVideo');
+
     closeDialogButton.forEach(button => {
         button.addEventListener('click', () => {
-            myDialog.close(); // Close the dialog
-            stopVideos();
+            playBtn.forEach(button => {
+                button.classList.remove('hidden');
+            });
+            player.stopVideo(); 
         });
     });
     
-    /**
-    * Stop all iframes or HTML5 <video>'s from playing
-    */
-    var stopVideos = function () {
-        var videos = document.querySelectorAll('iframe, video');
-        Array.prototype.forEach.call(videos, function (video) {
-            if (video.tagName.toLowerCase() === 'video') {
-            video.pause();
-            } else {
-            var src = video.src;
-            video.src = src;
+    playBtn.forEach(button => {
+        button.addEventListener('click', () => {
+            button.classList.add('hidden');
+            player.playVideo();
+        });
+    });
+
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
             }
         });
-    };
-
-    var stopAllYouTubeVideos = () => {
-        var iframes = document.querySelectorAll('iframe');
-        Array.prototype.forEach.call(iframes, iframe => {
-        iframe.contentWindow.postMessage(JSON.stringify({ event: 'command',
-            func: 'stopVideo' }), '*');
-        });
     }
-    // stopAllYouTubeVideos();
 
+    // 4. The API will call this function when the video player is ready.
+    function onPlayerReady(event) {
+        event.target.stopVideo();
+        // console.log(player);
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    // var done = false;
+    function onPlayerStateChange(event) {
+        // if (event.data == YT.PlayerState.PLAYING && !done) {
+        //     // setTimeout(stopVideo, 6000);
+        //     stopVideo();
+        //     done = true;
+        // }
+        if (event.data == YT.PlayerState.PLAYING) {
+            playBtn.forEach(button => {
+                button.classList.add('hidden');
+            });
+        }
+        if (event.data == YT.PlayerState.PAUSED) {
+            player.pauseVideo();
+            playBtn.forEach(button => {
+                button.classList.remove('hidden');
+            });
+        }
+    }
+    
 </script>

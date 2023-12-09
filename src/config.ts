@@ -5,9 +5,9 @@ export const SITE: Site = {
   author: "FDSEVEN",
   desc: "A website for Pro Evolution Soccer gamers.",
   title: "PESMania",
-  ogImage: "astropaper-og.jpg",
+  coverImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerPage: 3,
+  postPerPage: 10,
 };
 
 export const LOCALE = []; // set to [] to use the environment default

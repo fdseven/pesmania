@@ -1,6 +1,7 @@
 ---
 // Remove current url path and remove trailing slash if exists
-const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+const currentUrlPath1 = Astro.url.pathname.replace(/\/+$/, "");
+const currentUrlPath = currentUrlPath1.replace(/-/g, " ");
 
 // Get url array from path
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
@@ -8,32 +9,33 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
-breadcrumbList[0] === "posts" &&
-  breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+breadcrumbList[1] < "9, 90, 900" && breadcrumbList.splice(0, 2, `Posts page ${breadcrumbList[1] || 1}`);
+
+export interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
 ---
 
-<nav class="breadcrumb" aria-label="breadcrumb">
-  <ul class="col-span-8 sm:col-start-2 sm:col-span-6">
+<nav class={`breadcrumb ${className}`} aria-label="breadcrumb">
+  <ul class="flex flex-wrap gap-1 col-start-1 col-span-8 lg:col-start-2 lg:col-span-6 lg:w-max px-4 py-2 rounded-md bg-gradient-to-r from-skin-accent/20 to-transparent">
     <li>
       <a href="/">Home</a>
-      <span aria-hidden="true">&nbsp;&gt;&nbsp;</span>
     </li>
     {
       breadcrumbList.map((breadcrumb, index) =>
-        index + 1 === breadcrumbList.length ? (
+        index + 2 === breadcrumbList.length ? (
           <li>
-            <span
-              class={`${index > 0 ? "lowercase" : "capitalize"}`}
-              aria-current="page"
-            >
+            <span aria-hidden="true">&nbsp;&raquo;&nbsp;</span>
               {/* make the last part lowercase in Home > Tags > some-tag */}
-              {breadcrumb}
+              <a href={`/${breadcrumb}`}>{breadcrumb}</a><span aria-hidden="true">
             </span>
           </li>
         ) : (
-          <li>
-            <a href={`/${breadcrumb}`}>{breadcrumb}</a>
-            <span aria-hidden="true">&nbsp;&gt;&nbsp;</span>
+          <li class="capitalize opacity-75">
+            <span aria-current="page">&nbsp;&raquo;&nbsp;</span>
+            {breadcrumb}
           </li>
         )
       )
@@ -43,18 +45,12 @@ breadcrumbList[0] === "posts" &&
 
 <style>
   .breadcrumb {
-    @apply mx-auto mt-20 sm:mt-24 mb-8 w-full grid grid-cols-8 gap-8 px-4;
+    @apply relative z-20 mx-auto mt-20 sm:mt-28 mb-8 w-full grid grid-cols-8 gap-8 px-4;
   }
   .breadcrumb ul li {
     @apply inline;
   }
   .breadcrumb ul li a {
-    @apply capitalize opacity-70;
-  }
-  .breadcrumb ul li span {
-    @apply opacity-70;
-  }
-  .breadcrumb ul li:not(:last-child) a {
-    @apply hover:opacity-100;
+    @apply capitalize text-skin-accent;
   }
 </style>

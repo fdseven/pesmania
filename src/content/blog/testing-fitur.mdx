@@ -1,0 +1,93 @@
+---
+author: fdseven
+pubDatetime: 2023-12-03T01:05:52.822Z
+title: Testing Fitur
+postSlug: testing-fitur
+featured: false
+draft: true
+tags:
+  - post
+description: post description
+type: blog
+coverImage: /astropaper-og.jpg
+youtubeVideoId: 8HC3eoMYEes
+lastmod: 2023-12-03T01:05:52.822Z
+isFeatured: false
+---
+
+import Modal from "@components/Modal.astro";
+// import Popup from "@components/Popup.astro";
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div class="relative grid lg:-mr-8">
+    <img
+      src={frontmatter.coverImage}
+      class="cover w-full aspect-video object-cover col-start-1 row-start-1 cursor-pointer"
+    />
+    <Modal
+      modalId="modalIframe"
+      className="play-btn w-full h-full p-3 hover:scale-110 transition duration-300 col-start-1 row-start-1 place-self-center z-10"
+      embedYT="yes"
+    >
+      <main slot="main">
+        <div class="grid">
+          <iframe
+            id="player"
+            class="max-w-[90vw] h-[100vh] w-[100vw] max-h-[50.25vw] lg:max-h-[740px] lg:max-w-7xl -m-6 row-start-1 col-start-1"
+            width="720"
+            height="315"
+            src="https://www.youtube.com/embed/dNd0ng5WfY8?enablejsapi=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </main>
+    </Modal>
+  </div>
+</div>
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 [&>h2]:!mt-0">
+
+{/\* <Modal embedYT="yes" btnId="btnModal2" modalId="modalIframe2" open="Open modal" className="border border-skin-accent px-3 py-2 rounded-sm text-skin-accent mr-4">
+<main slot="main">
+<video
+        class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[715px] w-[100vw] lg:max-w-7xl -m-6"
+        controls
+      >
+<source
+          src="/assets/Napoli-Inter%203-0%2015a%20Giornata%20Serie%20A%20TIM%2016-17%20-%20HighLights.mp4"
+          class="aspect-video"
+        />
+</video>
+</main>
+
+  </Modal> */}
+
+<Modal 
+  title="Modal Title" 
+  modalId="modalIframe3" 
+  modalBtn="Open Popup" 
+  className="mr-4"
+>
+  <main slot="main">
+    LALALALA
+    
+    LALALALA
+
+    LALALALA
+
+    LALALALA
+
+    LALALALA
+
+    LALALALA
+
+  </main>
+  <button slot='close' class='text-skin-inverted bg-skin-accent px-3 py-2'>Close modal</button>
+</Modal>
+
+{/* <Popup timer={2} imageURL={'your image url here'} href={'your link'} description={'the description for aria-label'} /> */}
+
+</div>

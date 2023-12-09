@@ -41,12 +41,13 @@ const sortTagsPost = getSortedPosts(tagPosts);
 <Layout title={`Tag:${tag} | ${SITE.title}`}>
   <Header activeNav="tags" />
   <Main
-    pageTitle={[`Tag:`, `${tag}`]}
+    pageTitle={[`#`, `${tag}`]}
+    className="whitespace-nowrap !text-4xl !font-black md:!text-7xl lg:!text-[160px] sm:right-0 -tracking-widest md:-mt-6 md:-mr-10 lg:-mb-10 opacity-25 sm:opacity-10 lg:text-right"
     titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tag}".`}
+    pageDesc={`Articles with the tag "${tag}".`}
   >
     <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
-    <ul>
+    <ul class="grid gap-y-0 md:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
       {
         sortTagsPost.map(({ data }) => (
           <Card href={`/posts/${slugify(data)}`} frontmatter={data} />

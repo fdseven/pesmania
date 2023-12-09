@@ -9,7 +9,7 @@ export interface Props {
   title?: string;
   author?: string;
   description?: string;
-  ogImage?: string;
+  coverImage?: string;
   canonicalURL?: string;
 }
 
@@ -17,12 +17,12 @@ const {
   title = SITE.title,
   author = SITE.author,
   description = SITE.desc,
-  ogImage = SITE.ogImage,
+  coverImage = SITE.coverImage,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
 const socialImageURL = new URL(
-  ogImage ?? SITE.ogImage ?? "og.png",
+  coverImage ?? SITE.coverImage ?? "og.png",
   Astro.url.origin
 ).href;
 ---
@@ -113,7 +113,7 @@ const socialImageURL = new URL(
       )
     }
 
-    <ViewTransitions />
+    <!-- <ViewTransitions /> -->
 
     <script is:inline src="/toggle-theme.js"></script>
 

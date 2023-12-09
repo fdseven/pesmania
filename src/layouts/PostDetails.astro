@@ -6,6 +6,7 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 import { 
   FacebookShareButton,
@@ -16,6 +17,7 @@ import {
   SocialShare,
 } from "astro-social-share";
 
+
 const BUTTONS = [TwitterShareButton, FacebookShareButton, LinkedInShareButton, EmailShareButton, RedditShareButton]
 
 export interface Props {
@@ -24,14 +26,14 @@ export interface Props {
 
 const { post } = Astro.props;
 
-const { title, author, description, ogImage, canonicalURL, pubDatetime, tags } =
+const { title, author, description, coverImage, canonicalURL, pubDatetime, tags } =
   post.data;
 
 const { Content } = await post.render();
 
-const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
+const coverImageUrl = typeof coverImage === "string" ? coverImage : coverImage?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
+  coverImageUrl ?? `/posts/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
 ---
@@ -40,11 +42,11 @@ const ogUrl = new URL(
   title={title}
   author={author}
   description={description}
-  ogImage={ogUrl}
+  coverImage={ogUrl}
   canonicalURL={canonicalURL}
 >
   <Header />
-  <div class="mx-auto mt-20 sm:mt-24 w-full px-3 lg:px-10">
+  <!-- <div class="mx-auto mt-20 sm:mt-24 w-full px-3 lg:px-10">
     <button
       class="focus-outline mb-2 flex hover:opacity-75"
       onclick="history.back()"
@@ -55,19 +57,21 @@ const ogUrl = new URL(
         ></path>
       </svg><span>Go back</span>
     </button>
-  </div>
+  </div> -->
+
+  <Breadcrumbs />
 
   <main id="main-content" class="mx-auto w-full px-4 pb-12 z-10 bg-skin-fill">
     
     <section class="max-w-full pb-12 px-0">
 
-      <article id="article" role="article" class="mx-auto mt-6 max-w-full grid grid-cols-8 grid-rows-1 gap-8 prose">
+      <article id="article" role="article" class="mx-auto -mt-8 max-w-full grid grid-cols-8 grid-rows-1 gap-8 prose">
         <div class="col-span-8 md:col-span-8 lg:ml-8 z-10">
-          <div class="grid lg:grid-cols-2 gap-8">
-            <h1 transition:name={slugifyStr(title)} class="post-title flex items-center w-full bg-skin-accent/75 backdrop-blur-md p-4 lg:min-h-[244px] lg:p-8">{title}</h1>
-            <div class="flex flex-col lg:mr-8 lg:items-end text-skin-base">
-              <Datetime datetime={pubDatetime} size="sm" className="lg:bg-skin-fill pl-2" />
-              <span class="lg:bg-skin-fill pl-2">by : {author}</span>
+          <div class="grid lg:grid-cols-5 gap-8">
+            <h1 transition:name={slugifyStr(title)} class="post-title flex items-center bg-skin-accent/75 backdrop-blur-md p-4 max-w-max col-span-3 lg:min-h-[244px] lg:p-8">{title}</h1>
+            <div class="flex flex-col col-span-2 lg:mr-8 lg:items-end text-skin-base">
+              <Datetime datetime={pubDatetime} size="sm" className="lg:bg-skin-fill pl-2 opacity-50" />
+              <span class="lg:bg-skin-fill pl-2 opacity-60">by : {author}</span>
             </div>
           </div>
         </div>
@@ -140,21 +144,26 @@ const ogUrl = new URL(
             </RedditShareButton>
           </div>
         </div>
-        <Content />     
+        
+        <Content />
+        <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-span-4 lg:col-start-2 lg:order-last [&>ul]:p-0">
+          <ul class="tags-container">
+            {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
+          </ul> 
+        </div>
+        
+        <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-6 lg:ml-10 lg:col-span-3 text-skin-base">
+          <div class="lg:sticky lg:top-20">
+            <div class="text-center text-skin-accent min-w-[300px]">Advertisement</div>
+
+            <div class="my-6">
+            </div>
+            
+          </div>
+        </div>    
       </article> 
       
     </section>
-
-    <div class="mx-auto max-w-full grid grid-cols-8 gap-8">
-      <div class="col-span-8 md:col-start-2 md:col-span-6">
-        <hr class="border-skin-line" />
-
-        <ul class="tags-container">
-          {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
-        </ul>
-      
-      </div>
-    </div>
     
   </main>
   <hr class="border-skin-line mb-44 sm:mb-[75px]" />

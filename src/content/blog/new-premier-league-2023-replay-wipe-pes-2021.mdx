@@ -1,0 +1,82 @@
+---
+author: fdseven
+pubDatetime: 2023-12-06T17:06:35.212Z
+title: New Premier League 2023 Replay Wipe PES 2021
+postSlug: premier-league-2023-replay-wipe-pes-2021
+featured: true
+draft: false
+tags:
+  - replay wipe
+  - scoreboard
+  - PES 2021
+  - tutorial
+  - downloads
+description: My first creation for custom mode on PES 2021 PC. I Made it by myself using video editor & converting tools. I watch the tutorial from Youtube
+type: blog video cover
+coverImage: /assets/epl-replay-wipe.webp
+youtubeVideoId: NWnCrxACPuE
+lastmod: 2023-12-06T17:06:35.212Z
+---
+
+import Modal from "@components/Modal.astro";
+// import Popup from "@components/Popup.astro";
+
+{/* COVER IMAGE VIDEO */}
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div class="relative grid lg:-mr-8">
+    <img
+      src={frontmatter.coverImage}
+      class="cover w-full aspect-video object-cover col-start-1 row-start-1"
+    />
+    <Modal
+      modalId={frontmatter.youtubeVideoId}
+      className="play-btn w-full h-full p-3 hover:scale-110 transition duration-300 col-start-1 row-start-1 place-self-center z-10"
+      embedYT="yes"
+    >
+      <main slot="main">
+        <div class="grid">
+          <iframe
+            id="player"
+            class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[720px] w-[100vw] lg:max-w-7xl -m-6 row-start-1 col-start-1"
+            width="720"
+            height="315"
+            src={`https://www.youtube.com/embed/${frontmatter.youtubeVideoId}?enablejsapi=1`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </main>
+    </Modal>
+  </div>
+</div>
+{/* COVER IMAGE VIDEO */}
+
+{/* CONTENT */}
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
+
+## Hello there!
+
+This is my first creation for custom mods on PES 2021 PC. I just try to made the reply wipe EPL 2023 using video editor & converting tools. I watch the tutorial from here
+
+{" "}
+<div class="aspect-video relative">
+  <iframe
+    class="absolute w-full h-full"
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/vU2uvsSlO7g?si=7mTvoFbDyCeK37rS"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>
+
+I hope you like it, and enjoy it!
+
+</div>
+{/* CONTENT */}

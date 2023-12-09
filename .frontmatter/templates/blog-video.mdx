@@ -1,0 +1,57 @@
+---
+author: fdseven
+pubDatetime: 2023-12-03T01:05:52.822Z
+title: Testing Fitur
+postSlug: testing-fitur
+featured: false
+draft: false
+tags:
+  - post
+description: post description
+type: blog
+coverImage: /astropaper-og.jpg
+youtubeVideoId: dNd0ng5WfY8
+lastmod: 2023-12-03T01:05:52.822Z
+isFeatured: false
+---
+
+import Modal from "@components/Modal.astro";
+// import Popup from "@components/Popup.astro";
+
+{/* COVER IMAGE VIDEO */}
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div class="relative grid lg:-mr-8">
+    <img
+      src={frontmatter.coverImage}
+      class="cover w-full aspect-video object-cover col-start-1 row-start-1"
+    />
+    <Modal
+      modalId={frontmatter.youtubeVideoId}
+      className="play-btn w-full h-full p-3 hover:scale-110 transition duration-300 col-start-1 row-start-1 place-self-center z-10"
+      embedYT="yes"
+    >
+      <main slot="main">
+        <div class="grid">
+          <iframe
+            id="player"
+            class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[720px] w-[100vw] lg:max-w-7xl -m-6 row-start-1 col-start-1"
+            width="720"
+            height="315"
+            src={`https://www.youtube.com/embed/${frontmatter.youtubeVideoId}?enablejsapi=1`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </main>
+    </Modal>
+  </div>
+</div>
+{/* COVER IMAGE VIDEO */}
+
+{/* CONTENT */}
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
+  CONTENT HERE
+</div>
+{/* CONTENT */}

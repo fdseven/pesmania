@@ -1,12 +1,24 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
 import LinkButton from "./LinkButton.astro";
+import Modal from "./Modal.astro";
+import SearchBar from "./Search";
+import { getCollection } from "astro:content";
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
 }
 
 const { activeNav } = Astro.props;
+// Retrieve all articles
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+// List of items to search in
+const searchList = posts.map(({ data }) => ({
+  title: data.title,
+  description: data.description,
+  data,
+}));
 ---
 
 <header id="main-header" class="fixed z-30 w-full bg-skin-fill transition-transform duration-700 ease-in-out">
@@ -27,131 +39,206 @@ const { activeNav } = Astro.props;
           )
         }
       </a>
-      <nav id="nav-menu">
+      <!-- <LinkButton
+        href="/search"
+        className={`focus-outline p-3 sm:p-1 ${
+          activeNav === "search" ? "active" : ""
+        } flex`}
+        ariaLabel="search"
+        title="Search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="scale-125 sm:scale-100 sm:mr-1"
+          ><path
+            d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
+          ></path>
+        </svg>
+        <span class="hidden sm:block">What are you looking for?</span>
+      </LinkButton> -->
+
+      <Modal 
+        title="SEARCH any articles" 
+        modalId="modalSearch" 
+        modalBtn="What are you looking for?" 
+        className="font-black [&>span]:border-none [&>span>span]:hidden [&>span>svg]:block sm:[&>span>span]:block"
+      >
+        <main slot="main" class="relative w-[90vw] h-[80vh] before:content-[''] before:fixed before:top-[57px] before:left-0 before:w-full before:bg-skin-fill before:h-8 before:z-20">
+          <div class="w-full h-full">
+            <SearchBar client:load searchList={searchList} />
+          </div>
+        </main>
+      </Modal>
+      
+      <div class="flex gap-4">
         <button
-          class="hamburger-menu focus-outline"
+          class="group hamburger-menu focus-outline flex gap-2 items-center"
           aria-label="Open Menu"
           aria-expanded="false"
           aria-controls="menu-items"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="menu-icon"
-          >
-            <line x1="7" y1="12" x2="21" y2="12" class="line"></line>
-            <line x1="3" y1="6" x2="21" y2="6" class="line"></line>
-            <line x1="12" y1="18" x2="21" y2="18" class="line"></line>
-            <line x1="18" y1="6" x2="6" y2="18" class="close"></line>
-            <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
-          </svg>
+          <div class="icon">
+            <span></span>
+            <span></span>
+          </div>
+          <span class="hidden sm:block text-2xl font-black -tracking-wider group-[.is-active]:opacity-0 transition-opacity duration-700 delay-[1.2s] group-[.is-active]:delay-300 group-[.is-active]:duration-300">Menu</span>
         </button>
-        <ul id="menu-items" class="display-none sm:flex">
-          <li>
-            <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
-              Posts
-            </a>
-          </li>
-          <li>
-            <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
-              Tags
-            </a>
-          </li>
-          <li>
-            <a href="/about" class={activeNav === "about" ? "active" : ""}>
-              About
-            </a>
-          </li>
-          <li>
-            <LinkButton
-              href="/search"
-              className={`focus-outline p-3 sm:p-1 ${
-                activeNav === "search" ? "active" : ""
-              } flex`}
-              ariaLabel="search"
-              title="Search"
+        {
+          SITE.lightAndDarkMode && (
+            <button
+              id="theme-btn"
+              class="focus-outline"
+              title="Toggles light & dark"
+              aria-label="auto"
+              aria-live="polite"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="scale-125 sm:scale-100"
-                ><path
-                  d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
-                ></path>
+              <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" />
               </svg>
-            </LinkButton>
-          </li>
-          <li>
-            {
-              SITE.lightAndDarkMode && (
-                <button
-                  id="theme-btn"
-                  class="focus-outline"
-                  title="Toggles light & dark"
-                  aria-label="auto"
-                  aria-live="polite"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
-                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" />
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
-                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
-                  </svg>
-                </button>
-              )
-            }
-          </li>
-        </ul>
-      </nav>
+              <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
+              </svg>
+            </button>
+          )
+        }
+      </div>
+      
     </div>
   </div>
   <hr class="border-skin-line" />
 </header>
+
+<div id="menu-items" class="nav-main opacity-0 flex flex-col justify-center">
+  <nav id="nav-menu" class="text-center">
+    <ul>
+      <li>
+        <a href="/posts" class={activeNav === "posts" ? "active relative inline-block text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-5xl md:text-7xl py-5 duration-500"}>
+          Posts
+        </a>
+      </li>
+      <li>
+        <a href="/tags" class={activeNav === "tags" ? "active relative inline-block text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-5xl md:text-7xl py-5 duration-500"}>
+          Tags
+        </a>
+      </li>
+      <li>
+        <a href="/about" class={activeNav === "about" ? "active relative inline-block text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-5xl md:text-7xl py-5 duration-500"}>
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
 
 <style>
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
   .nav-container {
-    @apply mx-auto flex max-w-8xl flex-col items-center justify-between sm:flex-row;
+    @apply mx-auto flex max-w-full flex-col items-center justify-between sm:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between px-4 py-2 sm:items-center ;
+    @apply relative flex w-full justify-between px-4 sm:px-6 py-2 items-center ;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold text-skin-accent sm:static sm:text-4xl mt-0.5;
+    @apply static py-1 text-3xl font-black -tracking-wider text-skin-accent sm:text-4xl mt-0.5;
+  }
+  html {
+    &.nav-open {
+      @apply overflow-y-hidden;
+    }
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply self-end p-2 transition-transform duration-700 delay-1000;
+    .nav-open & {
+      @apply sm:translate-x-20 transition-transform duration-500 delay-300;
+    }
+    .icon {
+      @apply relative w-7 h-7 transition-transform duration-700;
+      .nav-open & {
+        @apply rotate-45 transition-transform duration-700;
+      }
+      >span {
+        @apply block bg-skin-accent absolute h-1.5 w-full opacity-100 left-0 rotate-0 transition-transform duration-300;
+        &:first-child {
+          @apply top-[5px] origin-left;
+          .nav-open & {
+            @apply rotate-90 translate-x-3.5 -translate-y-2;
+          }
+        }
+        &:nth-child(2) {
+          @apply top-[17px];
+          .nav-open & {
+            @apply rotate-180 -translate-y-[6px];
+          }
+        }
+      }
+    }
+  }
+  .hamburger-menu:hover {
+    .icon > span:first-child {
+      @apply rotate-90 translate-x-3.5 -translate-y-2;
+    }
+    .icon > span:nth-child(2) {
+      @apply rotate-180 -translate-y-[6px];
+    }
   }
   .hamburger-menu svg {
-    @apply h-6 w-6 scale-125 fill-skin-base;
+    @apply h-6 w-6 scale-125 fill-skin-base transition-all;
   }
-
-  nav {
-    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
-  }
-  nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
-  }
-  nav ul li {
-    @apply col-span-2 flex items-center justify-center;
-  }
-  nav ul li a {
-    @apply w-full px-4 py-3 text-center font-bold hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1 hover:transition-colors hover:duration-300;
-  }
-  nav ul li:nth-last-child(2) a {
-    @apply w-auto;
-  }
-  nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
-    @apply col-span-1;
+  .nav-main {
+    @apply fixed top-[66px] right-0 bottom-0 left-0 z-30 bg-skin-fill/75 backdrop-blur-md transition-all duration-[1700ms] delay-700 ease-in-out opacity-0 pointer-events-none; 
+    .nav-open & {
+      @apply opacity-100 pointer-events-auto duration-500;
+      >nav>ul {
+        >li { overflow: hidden; }
+        >li>a {
+          animation: nav-item-slide-in .7s ease-out forwards;
+          @apply opacity-0 -translate-x-96;
+          &:before {
+            @apply -translate-x-60;
+          }
+        }
+        >li:first-child a {
+          animation-delay: .3s;
+        }
+        >li:nth-child(2) a {
+          animation-delay: .4s;
+        }
+        >li:nth-child(3) a {
+          animation-delay: .5s;
+        }
+      }
+    }
+    >nav>ul {
+      @apply -mt-10;
+      >li>a {
+        @apply block font-black -tracking-widest hover:text-skin-accent;
+        animation: nav-item-slide-out .3s ease-in forwards;
+        &:before {
+          @apply absolute content-[''] inline-block w-[100px] h-1 bg-skin-accent bottom-1/2 -translate-x-80 left-3/4 transition-transform duration-500 ease-in-out;
+        }
+      }
+      >li:first-child a {
+        animation-delay: .5s;
+        &:before {
+            transition-delay: .5s;
+          }
+      }
+      >li:nth-child(2) a {
+        animation-delay: .4s;
+        &:before {
+            transition-delay: .4s;
+          }
+      }
+      >li:nth-child(3) a {
+        animation-delay: .3s;
+        &:before {
+            transition-delay: .3s;
+          }
+      }
+    }
   }
   nav a.active {
     @apply text-skin-accent;
@@ -174,7 +261,7 @@ const { activeNav } = Astro.props;
   }
 
   .menu-icon line {
-    @apply transition-opacity duration-75 ease-in-out;
+    @apply transition-opacity duration-150 ease-in-out;
   }
   .menu-icon .close {
     opacity: 0;
@@ -188,20 +275,54 @@ const { activeNav } = Astro.props;
   #main-header {
     @apply
         backdrop-blur-md
-        bg-skin-fill/75;
+        bg-skin-fill/75
+        top-0;
     &.hide {
       @apply
-        translate-y-[-67px]
-        top-0;
+        translate-y-[-67px];
     }
+    /* >div {
+      @apply 
+        transition duration-500 ease-in-out
+        h-[67px];
+    } */
     /* &.small {
       
     } */
     .nav-open & {
       @apply
-        translate-y-[67px]
-        top-[-67px];
+        top-0
+        translate-y-0;
     }
+  }
+
+  @keyframes nav-item-slide-in {
+      0% {
+          opacity: 0;
+          transform: translateX(-500px);
+          @media screen and (max-width: 768px) {
+              transform:translateX(0)
+          }
+      }
+
+      to {
+          opacity: 1;
+          transform: translateX(0)
+      }
+  }
+
+  @keyframes nav-item-slide-out {
+      0% {
+          opacity: 1;
+          transform: translateX(0)
+      }
+
+      to {
+          opacity: 0;
+          @media screen and (min-width: 768px) {
+              transform:translateX(-500px)
+          }
+      }
   }
 </style>
 
@@ -210,17 +331,17 @@ const { activeNav } = Astro.props;
     // Toggle menu
     const menuBtn = document.querySelector(".hamburger-menu");
     const menuIcon = document.querySelector(".menu-icon");
-    const menuItems = document.querySelector("#menu-items");
+    const html = document.querySelector("html");
 
     menuBtn?.addEventListener("click", () => {
       const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
-      menuIcon?.classList.toggle("is-active");
+      menuBtn?.classList.toggle("is-active");
       menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
       menuBtn.setAttribute(
         "aria-label",
         menuExpanded ? "Open Menu" : "Close Menu"
       );
-      menuItems?.classList.toggle("display-none");
+      html?.classList.toggle("nav-open");
     });
   }
 

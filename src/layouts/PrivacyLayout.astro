@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
   <Breadcrumbs />
   <main id="main-content" class="mx-auto w-full grid grid-cols-8 gap-8 px-4 pb-12 z-10 bg-skin-fill">
     <section id="about" class="prose mb-16 col-span-8 sm:col-start-2 sm:col-span-6 prose-img:border-0 max-w-full px-0">
-      <h1 class="text-2xl font-light sm:text-4xl">{frontmatter.title}</h1>
+      <h1 class="whitespace-nowrap !font-black sm:!text-7xl lg:!text-[160px] sm:right-0 -tracking-widest lg:-mt-4 md:-mr-10 opacity-25 sm:opacity-10 lg:text-right">{frontmatter.title}</h1>
       <slot />
     </section>
   </main>

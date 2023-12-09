@@ -12,30 +12,25 @@ tags:
   - downloads
 description: Proudly present & release my first custom scoreboard of Premier League 2023
 type: blog
-ogImage: /assets/spoiler-img.png
+coverImage: /assets/spoiler-img.png
 lastmod: 2023-11-29T20:37:42.880Z
 isFeatured: false
 ---
 
-import Figure from "@components/Figure.astro";
-import LinkButton from "@components/LinkButton.astro";
-
+{/* COVER IMAGE */}
 <div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
   <div className="relative lg:-mr-8">
     <img
       transition:persist
-      src={frontmatter.ogImage}
+      src={frontmatter.coverImage}
       className="cover w-full aspect-video object-cover"
     />
   </div>
 </div>
+{/* COVER IMAGE */}
 
-<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-5 [&>h2]:!mt-0">
+{/* CONTENT */}
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
   CONTENT HERE
 </div>
-
-<div class="col-start-1 col-span-8 lg:col-start-7 lg:col-span-2 text-skin-accent">
-  <div class="lg:sticky lg:top-20 min-w-[300px]">
-    <div class="text-center">Advertisement</div>
-  </div>
-</div>
+{/* CONTENT */}

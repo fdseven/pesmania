@@ -29,7 +29,7 @@
           "title": "Author",
           "name": "author",
           "type": "string",
-          "default": "FDSEVEN"
+          "default": "fdseven"
         },
         {
           "title": "Publishing date",
@@ -54,6 +54,7 @@
           "title": "Slug",
           "name": "postSlug",
           "type": "string",
+          "editable": true,
           "default": "{{slug}}"
         },
         {
@@ -84,10 +85,98 @@
         },
         {
           "title": "Content preview",
-          "name": "ogImage",
+          "name": "coverImage",
           "type": "image",
           "isPreviewImage": true,
           "default": "/assets/forrest-gump-quote.webp"
+        },
+        {
+          "title": "lastmod",
+          "name": "lastmod",
+          "type": "datetime"
+        }
+      ]
+    },
+    {
+      "name": "blog video cover",
+      "defaultFileName": "blog-post",
+      "pageBundle": false,
+      "template": "[[workspace]]/.frontmatter/templates/blog-video.mdx",
+      "previewPath": "/posts/",
+      "filePrefix": null,
+      "clearEmpty": false,
+      "fileType": "mdx",
+      "fields": [
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "string",
+          "default": "fdseven"
+        },
+        {
+          "title": "Publishing date",
+          "name": "pubDatetime",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Last modified date",
+          "name": "lastmod",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Slug",
+          "name": "postSlug",
+          "type": "string",
+          "editable": true,
+          "default": "{{slug}}"
+        },
+        {
+          "title": "Featured",
+          "name": "isFeatured",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Draft",
+          "name": "draft",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "list",
+          "default": [
+            "post"
+          ]
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "default": "post description"
+        },
+        {
+          "title": "Content preview",
+          "name": "coverImage",
+          "type": "image",
+          "isPreviewImage": true,
+          "default": "/assets/forrest-gump-quote.webp"
+        },
+        {
+          "title": "Youtube Video ID",
+          "name": "youtubeVideoId",
+          "type": "string",
+          "default": "8HC3eoMYEes"
         },
         {
           "title": "lastmod",

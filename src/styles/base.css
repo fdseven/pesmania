@@ -98,24 +98,24 @@
   }
 
   /* width */
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     @apply w-1.5;
-  }
+  } */
 
   /* Track */
-  ::-webkit-scrollbar-track {
+  /* ::-webkit-scrollbar-track {
     @apply bg-skin-fill;
-  }
+  } */
 
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+  /* ::-webkit-scrollbar-thumb {
     @apply bg-skin-accent;
-  }
+  } */
 
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+  /* ::-webkit-scrollbar-thumb:hover {
     @apply bg-skin-card-muted;
-  }
+  } */
 
   code,
   blockquote {

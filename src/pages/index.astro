@@ -22,48 +22,59 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main id="main-content" class="mx-auto mt-24 w-full grid grid-cols-8 gap-8 px-4 pb-12 z-10 bg-skin-fill">
-    <div class="col-span-8 sm:col-start-2 sm:col-span-6 max-w-full px-0">
-      <section id="hero" class="max-w-full px-0">
 
-        <h1 class="mr-2">All About PES 2021, patch, mods, tutorial, and more another stuff...</h1>
-        <!-- <a
-          target="_blank"
-          href="/rss.xml"
-          class="rss-link"
-          aria-label="rss feed"
-          title="RSS Feed"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-            ><path
-              d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-            ></path><path
-              d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-            ></path><circle cx="6" cy="18" r="2"></circle>
-          </svg>
-        </a> -->
-        <p>
-          For all football lovers, you must be familiar with the game Pro Evolution Soccer. Therefore, PESMania presents the best add-ons and updates for all PES gamers, to keep them enthusiastic and have high enthusiasm. With this, PESMania also strives to be the best platform for those looking for the best football simulator in the world. We share the latest module that allows having multiple scoreboards for any competition or league. The latest patch could see all licensed teams with official names, logos, kits and more.
-        </p>
+    <div class="col-span-8 -mt-7 -mx-4">
+      <section id="hero" class="max-w-full px-0 grid items-center [&>img]:w-full">
+
+        <img src="/assets/pxfuel.jpeg" alt="hero image">
+
+        <div class="px-4 lg:pl-0 lg:mr-0">
+          <!-- <h1>PES 2021 patch, mods, tutorial, and more another stuff...</h1> -->
+          <!-- <a
+            target="_blank"
+            href="/rss.xml"
+            class="rss-link"
+            aria-label="rss feed"
+            title="RSS Feed"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
+              ><path
+                d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+              ></path><path
+                d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+              ></path><circle cx="6" cy="18" r="2"></circle>
+            </svg>
+          </a> -->
+      
+        </div>
+
         
-        {
-          // only display if at least one social link is enabled
-          socialCount > 0 && (
-            <div class="social-wrapper">
-              <div class="social-links">Social Links:</div>  
-              <Socials />
-            </div>
-          )
-        }
       </section>
-
-      <Hr noPadding={true} />
+      <!-- <Hr noPadding={true} /> -->
+    </div>
+    <div class="col-span-8 sm:col-start-2 sm:col-span-6 max-w-full px-0">
+      <h2 class="font-black text-4xl mb-4">For all football lovers,</h2>
+      <p>
+         you must be familiar with the game Pro Evolution Soccer. Therefore, PESMania presents the best add-ons and updates for all PES gamers, to keep them enthusiastic and have high enthusiasm. With this, PESMania also strives to be the best platform for those looking for the best football simulator in the world. 
+        We share the latest module that allows having multiple scoreboards for any competition or league. The latest patch could see all licensed teams with official names, logos, kits and more.
+      </p>
+      
+      <!-- {
+        // only display if at least one social link is enabled
+        socialCount > 0 && (
+          <div class="social-wrapper">
+            <div class="social-links">Social Links:</div>  
+            <Socials />
+          </div>
+        )
+      } -->
 
       {
         featuredPosts.length > 0 && (
           <>
             <section id="featured" class="max-w-full px-0">
-                <h2 class="font-PremierLeague2024">Featured</h2>
-                <ul>
+              <h2 class="text-skin-accent whitespace-nowrap sm:!font-black sm:!text-7xl lg:!text-[160px] sm:right-0 sm:!-tracking-widest lg:-mb-14 md:-mr-10 sm:opacity-20">Featured</h2>
+                <ul class="grid gap-y-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
                   {featuredPosts.map(({ data }) => (
                     <Card
                       href={`/posts/${slugify(data)}`}
@@ -79,8 +90,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       }
 
       <section id="recent-posts" class="max-w-full px-0">
-        <h2 class="text-skin-accent !font-light">Recent Posts</h2>
-        <ul class="sm:grid sm:grid-cols-2 sm:gap-6">
+        <h2 class="whitespace-nowrap sm:!font-black sm:!text-7xl lg:!text-[160px] sm:right-0 sm:!-tracking-widest lg:-mb-14 md:-mr-10 sm:opacity-20">Recent Posts</h2>
+        <ul class="grid gap-y-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
           {
             sortedPosts
               .filter(({ data }) => !data.featured)
