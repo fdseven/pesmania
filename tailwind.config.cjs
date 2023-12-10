@@ -78,6 +78,20 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
+    function ({ addUtilities }) {
+      addUtilities({
+        ".text-gradient": {
+          background:
+            "linear-gradient(90deg, #7366FF 0%, #00f2e1 34.9%, #F36B32 69.79%, #ED2C92 100%)",
+          "background-clip": "text",
+          "-webkit-background-clip": "text",
+          " -webkit-text-fill-color": "transparent",
+        },
+        ".text-shadow": {
+          "text-shadow": "3px 3px 1px #000;",
+        },
+      });
+    },
   ]
 
 };

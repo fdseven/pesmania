@@ -112,17 +112,17 @@ const searchList = posts.map(({ data }) => ({
   <nav id="nav-menu" class="text-center">
     <ul>
       <li>
-        <a href="/posts" class={activeNav === "posts" ? "active relative inline-block text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-5xl md:text-7xl py-5 duration-500"}>
+        <a href="/posts" class={activeNav === "posts" ? "active relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500"}>
           Posts
         </a>
       </li>
       <li>
-        <a href="/tags" class={activeNav === "tags" ? "active relative inline-block text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-5xl md:text-7xl py-5 duration-500"}>
+        <a href="/tags" class={activeNav === "tags" ? "active relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500"}>
           Tags
         </a>
       </li>
       <li>
-        <a href="/about" class={activeNav === "about" ? "active relative inline-block text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-5xl md:text-7xl py-5 duration-500"}>
+        <a href="/about" class={activeNav === "about" ? "active relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500"}>
           About
         </a>
       </li>
@@ -197,7 +197,7 @@ const searchList = posts.map(({ data }) => ({
           animation: nav-item-slide-in .7s ease-out forwards;
           @apply opacity-0 -translate-x-96;
           &:before {
-            @apply -translate-x-60;
+            @apply translate-x-60;
           }
         }
         >li:first-child a {
@@ -214,10 +214,10 @@ const searchList = posts.map(({ data }) => ({
     >nav>ul {
       @apply -mt-10;
       >li>a {
-        @apply block font-black -tracking-widest hover:text-skin-accent;
+        @apply relative block font-black -tracking-widest hover:text-skin-accent w-1/4 mx-auto;
         animation: nav-item-slide-out .3s ease-in forwards;
         &:before {
-          @apply absolute content-[''] inline-block w-[100px] h-1 bg-skin-accent bottom-1/2 -translate-x-80 left-3/4 transition-transform duration-500 ease-in-out;
+          @apply absolute content-[''] hidden sm:inline-block w-4 h-4 rounded-full bg-skin-accent bottom-8 right-40 lg:right-60 transition-transform duration-500 ease-in-out;
         }
       }
       >li:first-child a {

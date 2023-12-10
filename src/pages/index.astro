@@ -24,9 +24,15 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <main id="main-content" class="mx-auto mt-24 w-full grid grid-cols-8 gap-8 px-4 pb-12 z-10 bg-skin-fill">
 
     <div class="col-span-8 -mt-7 -mx-4">
-      <section id="hero" class="max-w-full px-0 grid items-center [&>img]:w-full">
+      <section id="hero" class="aspect-video bg-gradient-to-tr from-[#7366ff] to-75% to-[#37003c] relative max-w-full px-0 !pb-0 mb-4 grid items-center [&>img]:w-full overflow-hidden">
 
-        <img src="/assets/pes-2021-mods-patch-scoreboard-kits-stadium.jpeg" alt="hero image">
+        <img src="/assets/messi.png" alt="hero image" class="absolute top-0 left-[20%] !w-1/2 opacity-25 cover">
+        <img src="/assets/haaland.png" alt="hero image" class="absolute bottom-0 sm:-bottom-16 -left-16 !w-[70%] img">
+        <img src="/assets/Logo_Pes2021.png" alt="hero image" class="absolute top-5 right-8 sm:top-16 sm:right-20 !w-1/4 cover">
+
+        <h1 class="absolute bottom-1 right-8 sm:bottom-6 max-w-lg lg:max-w-3xl text-right sm:right-12 lg:bottom-16 lg:right-20 text-white max-sm:!text-xl lg:!text-7xl -tracking-wider">
+          Enjoy your own journey, 
+          <!-- through football history -->with an <span class="text-skin-accent uppercase">amazing experience</span></h1>
 
         <div class="px-4 lg:pl-0 lg:mr-0">
           <!-- <h1>PES 2021 patch, mods, tutorial, and more another stuff...</h1> -->
@@ -73,7 +79,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         featuredPosts.length > 0 && (
           <>
             <section id="featured" class="max-w-full px-0">
-              <h2 class="text-skin-accent whitespace-nowrap sm:!font-black sm:!text-7xl lg:!text-[160px] sm:right-0 sm:!-tracking-widest lg:-mb-14 md:-mr-10 sm:opacity-20">Featured</h2>
+              <h2 class="text-gradient pr-4 whitespace-nowrap sm:!font-black sm:!text-7xl lg:!text-[160px] sm:right-0 sm:!-tracking-widest lg:-mb-14 md:-mr-10 sm:opacity-25">Featured</h2>
                 <ul class="grid gap-y-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
                   {featuredPosts.map(({ data }) => (
                     <Card
@@ -90,7 +96,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       }
 
       <section id="recent-posts" class="max-w-full px-0">
-        <h2 class="whitespace-nowrap sm:!font-black sm:!text-7xl lg:!text-[160px] sm:right-0 sm:!-tracking-widest lg:-mb-14 md:-mr-10 sm:opacity-20">Recent Posts</h2>
+        <h2 class="text-gradient pr-4 whitespace-nowrap sm:!font-black sm:!text-7xl lg:!text-[160px] sm:right-0 sm:!-tracking-widest lg:-mb-14 md:-mr-10 sm:opacity-25">Recent Posts</h2>
         <ul class="grid gap-y-0 sm:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
           {
             sortedPosts
@@ -162,3 +168,31 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply my-8 text-center;
   }
 </style>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+
+<script>
+
+  function imgParallax(){
+   
+        var image = document.querySelector('.cover');
+        var image2 = document.querySelectorAll('.img');
+        // @ts-ignore
+        new simpleParallax(image, {
+          overflow: true,
+          orientation: 'down',
+          maxTransition: 80
+        });
+        // @ts-ignore
+        new simpleParallax(image2, {
+          overflow: true,
+          orientation: 'right',
+        });
+  }
+  
+  imgParallax();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", imgParallax);
+
+</script>
