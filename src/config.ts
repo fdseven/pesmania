@@ -3,9 +3,9 @@ import type { Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://pesmania.web.id/", // replace this with your deployed domain
   author: "FDSEVEN",
-  desc: "A website for Pro Evolution Soccer gamers.",
+  desc: "A website for Pro Evolution Soccer gamers, PESMania is a sharing content for Pro Evolution Soccer (PES) community - Patches, Tools, Kits, Stadiums, and many other Mods, News & Updates.",
   title: "PESMania",
-  coverImage: "astropaper-og.jpg",
+  coverImage: "pes-2021-mods-patch-scoreboard-kits-stadium.jpeg",
   lightAndDarkMode: true,
   postPerPage: 10,
 };
