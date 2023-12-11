@@ -4,6 +4,25 @@
   "frontMatter.preview.host": "http://localhost:4321",
   "frontMatter.content.publicFolder": "public",
   "frontMatter.snippets.wrapper.enabled": false,
+  "frontMatter.global.activeMode": "",
+  "frontMatter.global.modes": [
+    {
+      "id": "mymode",
+      "features": [
+        "panel.globalSettings",
+        "panel.seo",
+        "panel.actions",
+        "panel.metadata",
+        "panel.contentType",
+        "panel.recentlyModified",
+        "panel.otherActions",
+        "dashboard.snippets.view",
+        "dashboard.snippets.manage",
+        "dashboard.data.view",
+        "dashboard.taxonomy.view"
+      ]
+    }
+  ],
   "frontMatter.content.pageFolders": [
     {
       "title": "blog",
@@ -59,7 +78,7 @@
         },
         {
           "title": "Featured",
-          "name": "isFeatured",
+          "name": "featured",
           "type": "boolean",
           "default": false
         },
@@ -94,6 +113,23 @@
           "title": "lastmod",
           "name": "lastmod",
           "type": "datetime"
+        },
+        {
+          "title": "type",
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "choice",
+          "choices": [
+            "PES",
+            "PES 2021",
+            "Patch",
+            "FIFA",
+            "Database"
+          ]
         }
       ]
     },
@@ -141,7 +177,7 @@
         },
         {
           "title": "Featured",
-          "name": "isFeatured",
+          "name": "featured",
           "type": "boolean",
           "default": false
         },
@@ -182,6 +218,22 @@
           "title": "lastmod",
           "name": "lastmod",
           "type": "datetime"
+        },
+        {
+          "title": "type",
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "choice",
+          "choices": [
+            "PES",
+            "Premier League",
+            "Replay Wipe",
+            "PES 2021"
+          ]
         }
       ]
     },

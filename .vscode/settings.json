@@ -1,4 +1,5 @@
 {
     "[markdown]": {
-    }
+    },
+    "frontMatter.content.autoUpdateDate": true
 }

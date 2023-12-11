@@ -37,23 +37,23 @@ const next = pageNum < totalPages ? "" : "disabled";
           <LinkButton
             disabled={prev === "disabled"}
             href={`/posts${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
-            className={`mr-4 select-none ${prev}`}
+            className={`group inline-block group items-center [&>p]:!m-0 px-5 py-2 !text-skin-inverted [&>p]:!text-skin-inverted hover:!text-skin-accent [&>p>svg]:text-skin-inverted [&>p:hover>svg]:text-skin-accent bg-skin-accent rounded-full !decoration-transparent hover:bg-skin-fill border border-skin-accent transition duration-500 astro-5eunqzkt mr-4 select-none ${prev}`}
             ariaLabel="Previous"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class={`${prev}-svg`}>
-              <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" />
+            <svg fill="none" xmlns="http://www.w3.org/2000/svg" class={`${prev}-svg`}>
+              <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" fill="currentColor" />
             </svg>
             Prev
           </LinkButton>
           <LinkButton
             disabled={next === "disabled"}
             href={`/posts/${pageNum + 1}`}
-            className={`ml-4 select-none ${next}`}
+            className={`group inline-block group items-center [&>p]:!m-0 px-5 py-2 !text-skin-inverted [&>p]:!text-skin-inverted hover:!text-skin-accent [&>p>svg]:text-skin-inverted [&>p:hover>svg]:text-skin-accent bg-skin-accent rounded-full !decoration-transparent hover:bg-skin-fill border border-skin-accent transition duration-500 astro-5eunqzkt ml-4 select-none ${next}`}
             ariaLabel="Next"
           >
             Next
-            <svg xmlns="http://www.w3.org/2000/svg" class={`${next}-svg`}>
-              <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
+            <svg fill="none" xmlns="http://www.w3.org/2000/svg" class={`${next}-svg`}>
+              <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" fill="currentColor" />
             </svg>
           </LinkButton>
         </nav>
@@ -66,7 +66,7 @@ const next = pageNum < totalPages ? "" : "disabled";
 
 <style>
   .pagination-wrapper {
-    @apply mt-4 flex justify-center;
+    @apply mt-8 flex justify-center;
   }
   .disabled {
     @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
