@@ -3,10 +3,13 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
+import Card from "@components/Card";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
+import slugify from "@utils/slugify";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import { getRelatedPosts } from "@utils/getRelatedPosts";
 
 import { 
   FacebookShareButton,
@@ -22,20 +25,25 @@ const BUTTONS = [TwitterShareButton, FacebookShareButton, LinkedInShareButton, E
 
 export interface Props {
   post: CollectionEntry<"blog">;
+  allPosts?: CollectionEntry<"blog">[];
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 
 const { title, author, description, coverImage, canonicalURL, pubDatetime, tags } =
   post.data;
 
 const { Content } = await post.render();
 
+const slug = slugify(post.data);
+
 const coverImageUrl = typeof coverImage === "string" ? coverImage : coverImage?.src;
 const ogUrl = new URL(
   coverImageUrl ?? `/posts/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
+// @ts-ignore
+const relatedPosts = getRelatedPosts(allPosts, slug, tags);
 ---
 
 <Layout
@@ -44,6 +52,7 @@ const ogUrl = new URL(
   description={description}
   coverImage={ogUrl}
   canonicalURL={canonicalURL}
+  tags={tags}
 >
   <Header />
   <!-- <div class="mx-auto mt-20 sm:mt-24 w-full px-3 lg:px-10">
@@ -147,16 +156,33 @@ const ogUrl = new URL(
         
         <Content />
         <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-span-4 lg:col-start-2 lg:order-last [&>ul]:p-0">
+
           <ul class="tags-container">
             {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
           </ul> 
+
+          <hr />
+
+          <section class="not-prose max-w-full px-0 mt-8">
+            <h2 class="text-gradient pr-4 whitespace-nowrap font-black text-3xl sm:!text-7xl sm:right-0 sm:!-tracking-widest mb-5">Related Articles</h2>
+            <ul class="grid gap-y-0 sm:gap-x-8 text-skin-base lg:gap-x-12 [&>li]:my-3 [&>li>a]:grid-cols-3 [&>li>a]:items-center [&>li>a>.text-article]:col-span-2 [&>li>a>.text-article>h3]:text-lg sm:[&>li>a>.text-article>h3]:text-2xl max-sm:[&>li>a>.image>img]:aspect-square">
+              {relatedPosts.map(post => <Card
+                href={`/posts/${slugify(post.data)}/`}
+                frontmatter={post.data}
+                secHeading={false}
+                desc={false}
+              />)}
+            </ul>
+          </section>
+
         </div>
         
-        <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-6 lg:ml-10 lg:col-span-3 text-skin-base">
+        <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-6 lg:ml-10 lg:col-span-3 row-span-2 text-skin-base">
+
           <div class="lg:sticky lg:top-20">
             <div class="text-center text-skin-accent min-w-[300px]">Advertisement</div>
             
-            <div class="my-6 text-center" align="center">
+            <div class="my-6 text-center">
               <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3982586798741178" crossorigin="anonymous"></script>
               <!-- ad unit 1 -->
               <ins class="adsbygoogle"

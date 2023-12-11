@@ -31,11 +31,14 @@
     {
       "title": "page",
       "path": "[[workspace]]/src/pages"
+    },
+    {
+      "path": "/Volumes/FDSEVEN/WORKS/PROJECTS/2023/astro/template/mckerlie.com"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "blog",
+      "name": "Blog post",
       "defaultFileName": "blog-post",
       "pageBundle": false,
       "template": "[[workspace]]/.frontmatter/templates/blog-post.mdx",
@@ -89,12 +92,9 @@
           "default": false
         },
         {
-          "title": "Tags",
+          "title": "tags",
           "name": "tags",
-          "type": "list",
-          "default": [
-            "post"
-          ]
+          "type": "tags"
         },
         {
           "title": "Description",
@@ -130,6 +130,11 @@
             "FIFA",
             "Database"
           ]
+        },
+        {
+          "title": "isFeatured",
+          "name": "isFeatured",
+          "type": "datetime"
         }
       ]
     },
@@ -188,12 +193,9 @@
           "default": false
         },
         {
-          "title": "Tags",
+          "title": "tags",
           "name": "tags",
-          "type": "list",
-          "default": [
-            "post"
-          ]
+          "type": "tags"
         },
         {
           "title": "Description",

@@ -7,7 +7,10 @@ featured: true
 draft: true
 tags:
   - docs
+  - related
+  - JavaScript
 description: Some rules & recommendations for creating or adding new posts using AstroPaper theme.
+lastmod: 2023-12-11T12:43:01.273Z
 ---
 
 Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.

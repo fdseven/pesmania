@@ -8,9 +8,10 @@ export const SITE: Site = {
   coverImage: "pes-2021-cover-mods-patch-scoreboard-kits-stadium.png",
   lightAndDarkMode: true,
   postPerPage: 10,
+  tags: ["fdseven", "design enthusiast", "gamer blog", "gamers"],
 };
 
-export const LOCALE = []; // set to [] to use the environment default
+export const LOCALE = ["en-EN"]; // set to [] to use the environment default
 
 export const LOGO_IMAGE = {
   enable: false,

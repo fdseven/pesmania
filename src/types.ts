@@ -6,6 +6,7 @@ export type Site = {
   coverImage?: string;
   lightAndDarkMode: boolean;
   postPerPage: number;
+  tags: string[];
 };
 
 export type SocialObjects = {

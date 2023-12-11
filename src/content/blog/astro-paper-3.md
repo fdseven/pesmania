@@ -9,6 +9,7 @@ tags:
   - release
 description: "AstroPaper Version 3: Elevating Your Web Experience with Astro v3 and Seamless View Transitions"
 draft: true
+lastmod: 2023-12-11T11:52:13.569Z
 ---
 
 We're excited to announce the release of AstroPaper v3, packed with new features, enhancements, and bug fixes to elevate your web development experience. Let's dive into the highlights of this release:
