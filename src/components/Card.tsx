@@ -35,7 +35,7 @@ export default function Card({
           {secHeading ? (
             <h2 {...headerProps}>{title}</h2>
           ) : (
-            <h3 {...headerProps}>{title}</h3>
+            <h3 className="text-xl lg:text-2xl font-semibold">{title}</h3>
           )}
         </span>
       </a>
