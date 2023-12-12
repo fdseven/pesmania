@@ -31,16 +31,13 @@
     {
       "title": "page",
       "path": "[[workspace]]/src/pages"
-    },
-    {
-      "path": "/Volumes/FDSEVEN/WORKS/PROJECTS/2023/astro/template/mckerlie.com"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "Blog post",
       "defaultFileName": "blog-post",
-      "pageBundle": false,
+      "pageBundle": true,
       "template": "[[workspace]]/.frontmatter/templates/blog-post.mdx",
       "previewPath": "/posts/",
       "filePrefix": null,

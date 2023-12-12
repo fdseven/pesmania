@@ -158,13 +158,15 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
         <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-span-4 lg:col-start-2 lg:order-last [&>ul]:p-0">
 
           <ul class="tags-container">
-            {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
+            {
+              tags.map(tag => <Tag name={slugifyStr(tag)} size="lg" />)
+            }
           </ul> 
 
           <hr />
 
           <section class="not-prose max-w-full px-0 mt-8">
-            <h2 class="text-gradient pr-4 whitespace-nowrap font-black text-3xl sm:!text-7xl sm:right-0 sm:!-tracking-widest mb-5">Related Articles</h2>
+            <h2 class="text-gradient pr-4 whitespace-nowrap font-black text-4xl sm:!text-7xl sm:right-0 sm:!-tracking-widest mb-6 pb-2">You Might Like</h2>
             <ul class="grid gap-y-0 sm:gap-x-8 text-skin-base lg:gap-x-12 [&>li]:my-3 [&>li>a]:grid-cols-3 [&>li>a]:items-center [&>li>a>.text-article]:col-span-2 [&>li>a>.text-article>h3]:text-lg sm:[&>li>a>.text-article>h3]:text-2xl max-sm:[&>li>a>.image>img]:aspect-square">
               {relatedPosts.map(post => <Card
                 href={`/posts/${slugify(post.data)}/`}

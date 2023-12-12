@@ -5,12 +5,13 @@ export function getRelatedPosts(
   posts: CollectionEntry<"blog">[], // All posts for the blog
   slug: string, // Current page's Slug
   tags: string[], // Current page's tags
-  numRelatedPosts: number = 4 // Number of elements to return
+  numRelatedPosts: number = 5 // Number of elements to return
 ) {
   const relatedPosts = posts
     .filter(
       post =>
-        post.slug != slug &&
+        post.data.postSlug != slug &&
+        post.data.draft != true &&
         post.data.tags?.filter(tag => tags.includes(tag)).length > 0
     )
     .map(post => ({

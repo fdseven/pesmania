@@ -23,7 +23,7 @@ const next = pageNum < totalPages ? "" : "disabled";
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
-  <Main pageTitle="Articles" pageDesc="" className="text-gradient !font-black md:!text-7xl lg:!text-[160px] sm:right-0 sm:-tracking-widest md:-mr-10 lg:-mb-14 opacity-50 sm:opacity-30">
+  <Main pageTitle="Articles" pageDesc="" className="text-gradient !font-black !text-4xl md:!text-7xl lg:!text-[160px] sm:right-0 sm:-tracking-widest md:-mr-10 lg:-mb-14 lg:opacity-50">
     <ul class="grid gap-y-0 md:grid-cols-2 sm:gap-x-8 lg:gap-x-12">
       {
         posts.map(({ data }) => (
