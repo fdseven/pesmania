@@ -32,6 +32,7 @@ module.exports = {
         skin: {
           base: withOpacity("--color-text-base"),
           accent: withOpacity("--color-accent"),
+          "accent-inverted": withOpacity("--color-accent-inverted"),
           inverted: withOpacity("--color-fill"),
         },
       },
@@ -39,6 +40,7 @@ module.exports = {
         skin: {
           fill: withOpacity("--color-fill"),
           accent: withOpacity("--color-accent"),
+          "accent-inverted": withOpacity("--color-accent-inverted"),
           inverted: withOpacity("--color-text-base"),
           card: withOpacity("--color-card"),
           "card-muted": withOpacity("--color-card-muted"),
@@ -48,6 +50,7 @@ module.exports = {
         skin: {
           fill: withOpacity("--color-fill"),
           accent: withOpacity("--color-accent"),
+          "accent-inverted": withOpacity("--color-accent-inverted"),
           invert: withOpacity("--color-invert"),
         },
       },
@@ -67,6 +70,7 @@ module.exports = {
         skin: {
           base: withOpacity("--color-text-base"),
           accent: withOpacity("--color-accent"),
+          "accent-inverted": withOpacity("--color-accent-inverted"),
         },
         transparent: "transparent",
       },

@@ -8,6 +8,7 @@
     --color-fill: 251, 254, 251;
     --color-text-base: 40, 39, 40;
     --color-accent: 115, 103, 255;
+    --color-accent-inverted: 0, 243, 225;
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
@@ -17,6 +18,7 @@
     --color-fill: 55, 0, 60;
     --color-text-base: 234, 237, 243;
     --color-accent: 0, 243, 225;
+    --color-accent-inverted: 115, 103, 255;
     --color-card: 52, 63, 96;
     --color-card-muted: 125, 79, 124;
     --color-border: 100, 36, 81;
