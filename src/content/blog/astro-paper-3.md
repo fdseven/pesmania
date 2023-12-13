@@ -9,8 +9,10 @@ tags:
   - release
 description: "AstroPaper Version 3: Elevating Your Web Experience with Astro v3 and Seamless View Transitions"
 draft: true
-lastmod: 2023-12-11T11:52:13.569Z
+lastmod: 2023-12-13T14:42:48.555Z
 ---
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
 
 We're excited to announce the release of AstroPaper v3, packed with new features, enhancements, and bug fixes to elevate your web development experience. Let's dive into the highlights of this release:
 
@@ -173,3 +175,5 @@ Ready to explore the exciting new features and improvements in AstroPaper v3? St
 For other bug fixes and integration updates, check out the [release notes](https://github.com/satnaing/astro-paper/releases/tag/v3.0.0) to learn more.
 
 If you encounter any bugs or face difficulties during the upgrade process, please feel free to open an issue or start a discussion on [GitHub](https://github.com/satnaing/astro-paper).
+
+</div>

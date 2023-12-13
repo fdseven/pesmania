@@ -9,7 +9,10 @@ tags:
   - release
 description: AstroPaper with the enhancements of Astro v2. Type-safe markdown contents, bug fixes and better dev experience etc.
 draft: true
+lastmod: 2023-12-13T14:37:46.083Z
 ---
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
 
 Astro 2.0 has been released with some cool features, breaking changes, DX improvements, better error overlay and so on. AstroPaper takes advantage of those cool features, especially Content Collections API.
 
@@ -90,3 +93,5 @@ All the [#docs](https://astro-paper.pages.dev/tags/docs/) blog posts and [README
 - in a tag page, the last part of the breadcrumb is now updated to lower-case for consistency
 - exclude draft posts in a tag page
 - fix 'onChange value not updating issue' after a page reload
+
+</div>

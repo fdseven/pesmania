@@ -20,6 +20,7 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
+      // @ts-ignore
       remarkToc,
       [
         remarkCollapse,
