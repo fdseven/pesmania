@@ -37,7 +37,7 @@
     {
       "name": "Blog post",
       "defaultFileName": "blog-post",
-      "pageBundle": true,
+      "pageBundle": false,
       "template": "[[workspace]]/.frontmatter/templates/blog-post.mdx",
       "previewPath": "/posts/",
       "filePrefix": null,

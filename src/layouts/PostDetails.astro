@@ -167,7 +167,7 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
 
           <section class="not-prose max-w-full px-0 mt-8">
             <h2 class="text-gradient pr-4 whitespace-nowrap font-bold sm:font-black text-4xl sm:!text-7xl sm:right-0 !-tracking-widest mb-6 pb-2">You Might Like</h2>
-            <ul class="grid gap-y-0 sm:gap-x-8 text-skin-base lg:gap-x-12 [&>li]:my-3 [&>li>a]:grid-cols-3 [&>li>a]:items-center [&>li>a>.text-article]:col-span-2 [&>li>a>.text-article>h3]:text-lg sm:[&>li>a>.text-article>h3]:text-2xl max-sm:[&>li>a>.image>img]:aspect-square">
+            <ul class="grid gap-y-0 sm:gap-x-8 text-skin-base lg:gap-x-12 [&>li]:my-2 [&>li>a]:grid-cols-3 [&>li>a]:items-center [&>li>a>.text-article]:col-span-2 [&>li>a>.text-article>h3]:text-lg sm:[&>li>a>.text-article>h3]:text-2xl max-sm:[&>li>a>.image>img]:aspect-square">
               {relatedPosts.map(post => <Card
                 href={`/posts/${slugify(post.data)}/`}
                 frontmatter={post.data}

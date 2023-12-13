@@ -26,10 +26,13 @@ export default function Card({
     <li className="my-6">
       <a
         href={href}
-        className="relative overflow-hidden grid gap-4 sm:gap-6 text-lg font-medium decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 text-skin-base hover:text-skin-accent transition duration-500"
+        className="relative overflow-hidden grid gap-4 sm:gap-6 text-lg font-medium decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 text-skin-base hover:text-skin-accent hover:[&>.image>img]:opacity-100 transition duration-500"
       >
-        <span className="relative overflow-hidden image rounded-r-lg rounded-tl-lg">
-          <img src={`${coverImage}`} className="aspect-video object-cover" />
+        <span className="relative overflow-hidden image bg-black rounded-r-2xl rounded-tl-2xl">
+          <img
+            src={`${coverImage}`}
+            className="aspect-video object-cover opacity-90 transition-opacity duration-700"
+          />
         </span>
         <span className="relative w-full text-article">
           {secHeading ? (
