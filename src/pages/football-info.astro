@@ -27,16 +27,19 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       <section id="hero" class="bg-gradient-to-tr from-[#7366ff] to-75% to-[#37003c] relative max-w-full px-4 sm:px-6 !pb-0 mb-4 grid items-center [&>img]:w-full overflow-hidden">
 
         <h1 class="text-white max-sm:!text-4xl lg:!text-7xl -tracking-wider">
-          <span class="text-gradient uppercase font-black -tracking-widest pr-2 inline-block">Football Info</span></h1>
+          <span class="text-gradient uppercase font-black -tracking-widest pr-2 inline-block">Football Info</span>
+        </h1>
         
       </section>
       <!-- <Hr noPadding={true} /> -->
     </div>
     <div class="col-span-8 sm:col-start-2 sm:col-span-6 max-w-full px-0">
-      <h2 class="text-center font-black text-4xl mb-4">For all football lovers, <span class="max-lg:block max-lg:mt-3 text-skin-accent">COMING SOON</span></h2>
+        <!-- <h2 class="text-center font-black text-4xl mb-4">For all football lovers, <span class="max-lg:block max-lg:mt-3 text-skin-accent">COMING SOON</span></h2> -->
 
-
-      <opta-widget widget="fixtures" competition="8" season="2023" template="grid" live="false" show_venue="true" match_status="all" grouping="date" show_grouping="true" navigation="none" default_nav="1" start_on_current="true" sub_grouping="date" order_by="date_ascending" show_crests="true" show_competition_name="true" date_format="ddd Do MMM" time_format="HH:mm" month_date_format="MMMM" competition_naming="brief" team_naming="brief" pre_match="false" show_live="false" show_logo="true" show_title="true" breakpoints="400" sport="football"></opta-widget>
+        <!-- LIVESCORE WIDGET SOCCERSAPI.COM --> 
+        <div id="ls-widget" data-w="wo_w3654_6579788f69107" class="livescore-widget"></div>
+        <script type="text/javascript" src="https://ls.soccersapi.com/widget/res/wo_w3654_6579788f69107/widget.js"></script>
+        <!-- LIVESCORE WIDGET SOCCERSAPI.COM -->
 
     </div>
   </main>
@@ -44,16 +47,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
   <Footer />
 </Layout>
-
-<script is:inline src="https://widgets.statsperform-hosted.com.cn/v3/v3.opta-widgets.js"></script>
-<script is:inline>
-    var opta_settings = {
-            subscription_id: 'd6f4aa0839e0e85f5040a23395bb7e18',
-            language: 'en_GB',
-            service_region: 'china',
-            timezone: 'Asia/Jakarta'
-        };
-</script>
 
 <style>
   /* ===== Hero Section ===== */
