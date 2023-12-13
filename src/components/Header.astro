@@ -1,8 +1,9 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { LOGO_IMAGE, SITE, navList } from "@config";
 import Modal from "./Modal.astro";
 import SearchBar from "./Search";
 import { getCollection } from "astro:content";
+import NavLink from "./NavLink.astro";
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
@@ -110,21 +111,13 @@ const searchList = posts.map(({ data }) => ({
 <div id="menu-items" class="nav-main opacity-0 flex flex-col justify-center">
   <nav id="nav-menu" class="text-center">
     <ul>
-      <li>
-        <a href="/posts" class={activeNav === "posts" ? "active relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500"}>
-          Posts
-        </a>
-      </li>
-      <li>
-        <a href="/tags" class={activeNav === "tags" ? "active relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500"}>
-          Tags
-        </a>
-      </li>
-      <li>
-        <a href="/about" class={activeNav === "about" ? "active relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500" : "relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500"}>
-          About
-        </a>
-      </li>
+      {navList.map((menu) => (
+        <li>
+            <NavLink href={menu.url}>
+                {menu.name}
+            </NavLink>
+        </li>  
+    ))}
     </ul>
   </nav>
 </div>
@@ -208,30 +201,39 @@ const searchList = posts.map(({ data }) => ({
         >li:nth-child(3) a {
           animation-delay: .5s;
         }
+        >li:nth-child(4) a {
+          animation-delay: .6s;
+        }
       }
     }
     >nav>ul {
-      @apply -mt-10;
+      @apply -mt-14;
       >li>a {
-        @apply relative block font-black -tracking-widest hover:text-skin-accent w-1/4 mx-auto;
+        @apply relative block font-black -tracking-widest hover:text-skin-accent w-2/4 mx-auto;
         animation: nav-item-slide-out .3s ease-in forwards;
         &:before {
           @apply absolute content-[''] hidden sm:inline-block w-4 h-4 rounded-full bg-skin-accent bottom-8 right-40 lg:right-60 transition-transform duration-500 ease-in-out;
         }
       }
       >li:first-child a {
+        animation-delay: .6s;
+        &:before {
+            transition-delay: .6s;
+          }
+      }
+      >li:nth-child(2) a {
         animation-delay: .5s;
         &:before {
             transition-delay: .5s;
           }
       }
-      >li:nth-child(2) a {
+      >li:nth-child(3) a {
         animation-delay: .4s;
         &:before {
             transition-delay: .4s;
           }
       }
-      >li:nth-child(3) a {
+      >li:nth-child(4) a {
         animation-delay: .3s;
         &:before {
             transition-delay: .3s;

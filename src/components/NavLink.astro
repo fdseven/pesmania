@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "@utils/utils";
+
+type Props = HTMLAttributes<"a">;
+const { href ="#", class: className, ...props } = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+---
+<a href={href} class={cn(["relative inline-block text-3xl sm:text-5xl md:text-7xl py-5 duration-500", {"text-skin-accent": isActive}])} {...props}>
+    <slot />             
+</a>

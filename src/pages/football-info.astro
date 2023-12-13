@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
+import Hr from "@components/Hr.astro";
+import Card from "@components/Card";
+import getSortedPosts from "@utils/getSortedPosts";
+import slugify from "@utils/slugify";
+import { SOCIALS } from "@config";
+import Socials from "@components/Socials.astro";
+
+const posts = await getCollection("blog");
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+
+const socialCount = SOCIALS.filter(social => social.active).length;
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" class="mx-auto mt-24 w-full grid grid-cols-8 gap-8 px-4 pb-12 z-10 bg-skin-fill">
+
+    <div class="col-span-8 -mt-7 -mx-4">
+      <section id="hero" class="bg-gradient-to-tr from-[#7366ff] to-75% to-[#37003c] relative max-w-full px-4 sm:px-6 !pb-0 mb-4 grid items-center [&>img]:w-full overflow-hidden">
+
+        <h1 class="text-white max-sm:!text-4xl lg:!text-7xl -tracking-wider">
+          <span class="text-gradient uppercase font-black -tracking-widest pr-2 inline-block">Football Info</span></h1>
+        
+      </section>
+      <!-- <Hr noPadding={true} /> -->
+    </div>
+    <div class="col-span-8 sm:col-start-2 sm:col-span-6 max-w-full px-0">
+      <h2 class="text-center font-black text-4xl mb-4">For all football lovers, <span class="max-lg:block max-lg:mt-3 text-skin-accent">COMING SOON</span></h2>
+
+
+      <opta-widget widget="fixtures" competition="8" season="2023" template="grid" live="false" show_venue="true" match_status="all" grouping="date" show_grouping="true" navigation="none" default_nav="1" start_on_current="true" sub_grouping="date" order_by="date_ascending" show_crests="true" show_competition_name="true" date_format="ddd Do MMM" time_format="HH:mm" month_date_format="MMMM" competition_naming="brief" team_naming="brief" pre_match="false" show_live="false" show_logo="true" show_title="true" breakpoints="400" sport="football"></opta-widget>
+
+    </div>
+  </main>
+  <hr class="border-skin-line mb-44 sm:mb-[75px]" />
+
+  <Footer />
+</Layout>
+
+<script is:inline src="http://widget.cloud.opta.net/v3/v3.opta-widgets.js"></script>
+<script>
+    var opta_settings = {
+            subscription_id: 'd6f4aa0839e0e85f5040a23395bb7e18',
+            language: 'en_GB',
+            timezone: 'Europe/London'
+        };
+</script>
+
+<style>
+  /* ===== Hero Section ===== */
+  #hero {
+    @apply pb-6;
+  }
+  #hero h1 {
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero .rss-link {
+    @apply mb-6;
+  }
+  #hero .rss-icon {
+    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+  .social-links {
+    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+  }
+
+  /* ===== Featured & Recent Posts Sections ===== */
+  #featured,
+  #recent-posts {
+    @apply pb-6 pt-12;
+  }
+  #featured h2,
+  #recent-posts h2 {
+    @apply text-2xl font-semibold tracking-wide;
+  }
+  .all-posts-btn-wrapper {
+    @apply my-8 text-center;
+  }
+</style>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+
+<script>
+
+  function imgParallax(){
+   
+        var image = document.querySelector('.cover');
+        var image2 = document.querySelectorAll('.img');
+        // @ts-ignore
+        new simpleParallax(image, {
+          overflow: true,
+          orientation: 'down',
+          maxTransition: 80
+        });
+        // @ts-ignore
+        new simpleParallax(image2, {
+          overflow: true,
+          orientation: 'right',
+        });
+  }
+  
+  imgParallax();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", imgParallax);
+
+</script>

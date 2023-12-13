@@ -10,6 +10,7 @@ export const SITE: Site = {
   postPerPage: 10,
   tags: ["fdseven", "design enthusiast", "gamer blog", "gamers"],
 };
+export const BASE_URL = import.meta.env.BASE_URL;
 
 export const LOCALE = ["en-EN"]; // set to [] to use the environment default
 
@@ -19,6 +20,32 @@ export const LOGO_IMAGE = {
   width: 216,
   height: 46,
 };
+
+export const navList = [
+  {
+    name: "Posts",
+    url: `${BASE_URL}posts`,
+  },
+  {
+    name: "Tags",
+    url: `${BASE_URL}tags`,
+    submenu: [
+      // { name: "Movie News", url: `${BASE_URL}indeks-subkanal.html`},
+      // { name: "Movie Review", url: `${BASE_URL}indeks-review-movie.html`},
+      // { name: "Series Update", url: `#`},
+      // { name: "Behind The Scene", url: `#`},
+      // { name: "Cinema Talk", url: `#`},
+    ],
+  },
+  {
+    name: "Football Info",
+    url: `${BASE_URL}football-info`,
+  },
+  {
+    name: "About",
+    url: `${BASE_URL}about`,
+  },
+];
 
 export const SOCIALS: SocialObjects = [
   {
