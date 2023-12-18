@@ -7,7 +7,7 @@ export const SITE: Site = {
   title: "PESMania",
   coverImage: "pes-2021-cover-mods-patch-scoreboard-kits-stadium.png",
   lightAndDarkMode: true,
-  postPerPage: 10,
+  postPerPage: 9,
   tags: ["fdseven", "design enthusiast", "gamer blog", "gamers"],
 };
 export const BASE_URL = import.meta.env.BASE_URL;
