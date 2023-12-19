@@ -34,7 +34,7 @@ export default function Card({
             className="aspect-video object-cover opacity-90 transition-opacity duration-700"
           />
         </span>
-        <span className="relative w-full text-article">
+        <span className="relative w-full text-article block pb-2">
           {secHeading ? (
             <h2 {...headerProps}>{title}</h2>
           ) : (
