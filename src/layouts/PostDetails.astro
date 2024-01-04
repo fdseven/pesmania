@@ -5,6 +5,7 @@ import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Card from "@components/Card";
 import Datetime from "@components/Datetime";
+import Disqus from "@components/Disqus.astro";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import slugify from "@utils/slugify";
@@ -155,6 +156,11 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
         </div>
         
         <Content />
+
+        <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-span-4 lg:col-start-2 lg:order-last [&>ul]:p-0">
+          <Disqus />
+        </div>
+        
         <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-span-4 lg:col-start-2 lg:order-last [&>ul]:p-0">
 
           <ul class="tags-container">
@@ -189,7 +195,7 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
                 <iframe class="absolute w-full h-full" src="/ads/detikcom/index.html" frameborder="0"></iframe>
               </div>
             </div>
-            
+
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3982586798741178"
               crossorigin="anonymous"></script>
             <!-- ad unit 1 -->
@@ -206,7 +212,8 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
                 
           </div>
 
-        </div>    
+        </div>  
+        
       </article> 
       
     </section>
