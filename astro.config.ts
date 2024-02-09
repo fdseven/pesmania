@@ -6,6 +6,8 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import mdx from '@astrojs/mdx';
 import { SITE } from "./src/config";
+import AutoImport from 'astro-auto-import';
+import MDXCodeBlocks, { mdxCodeBlockAutoImport } from 'astro-mdx-code-blocks';
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +18,10 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
+    AutoImport({
+      imports: [mdxCodeBlockAutoImport('./src/components/CodeBlock.astro')],
+    }),
+    MDXCodeBlocks(),
     mdx(),
   ],
   markdown: {
