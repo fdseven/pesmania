@@ -107,7 +107,7 @@ export default function SearchBar({ searchList }: Props) {
         </div>
       )}
 
-      <ul className="grid gap-y-0 md:grid-cols-2 sm:gap-x-8 lg:gap-x-12 xl:grid-cols-3">
+      <ul className="grid gap-y-0 md:grid-cols-2 sm:gap-x-8 lg:gap-x-12 xl:grid-cols-3 absolute top-28 bottom-0 w-full overflow-auto">
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <Card
