@@ -31,7 +31,7 @@ export default function Card({
         <span className="relative overflow-hidden image bg-black rounded-r-2xl rounded-tl-2xl">
           <img
             src={`${coverImage}`}
-            className="aspect-video object-cover opacity-90 transition-opacity duration-700"
+            className="w-full aspect-video object-cover opacity-90 transition-opacity duration-700"
           />
         </span>
         <span className="relative w-full text-article block pb-2">
