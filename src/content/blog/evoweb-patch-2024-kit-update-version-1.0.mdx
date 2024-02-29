@@ -1,8 +1,8 @@
 ---
 author: fdseven
 pubDatetime: 2024-02-29T07:43:26.915Z
-title: EvoWeb Patch 2024 Kit Update Version 1.0
-postSlug: evoweb-patch-2024-kit-update-version-1-0
+title: EvoWeb Patch 2024 Kit Update Version 1.0 + 2.0 AIO
+postSlug: evoweb-patch-2024-kit-update-version-aio
 featured: false
 draft: false
 tags:
@@ -15,13 +15,13 @@ tags:
   - PES 2021
   - release
 description: |-
-  EvoWeb Patch 2024 Kit Update Version 1.0
+  EvoWeb Patch 2024 Kit Update Version 1.0 + 2.0 AIO
   for PES2021 Season Update (compatible with Datapack 7.0)
   Made by @Cesc Fabregas, @Hawke, @ninet, @scottish_carson
 type: Blog post
-lastmod: 2024-02-29T09:26:31.454Z
+lastmod: 2024-02-29T09:38:36.564Z
 isFeatured: null
-coverImage: /assets/Kit-Update-1-0-resized.jpeg
+coverImage: /assets/Kit-Update-2-0-resized.jpeg
 keywords:
   - Kit Server
   - Kits
@@ -48,9 +48,9 @@ import LinkButton from "@components/LinkButton.astro";
 {/* CONTENT */}
 
 <div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
-  ## EvoWeb Patch 2024 Kit Update Version 1.0 for PES2021 Season Update (compatible with Datapack 7.0) Made by @Cesc Fabregas, @Hawke, @ninet, @scottish_carson
+  ## EvoWeb Patch 2024 Kit Update Version 1.0 + 2.0 AIO for PES2021 Season Update (compatible with Datapack 7.0) Made by @Cesc Fabregas, @Hawke, @ninet, @scottish_carson
 
-### Kit Update 1.0 Features:
+### Kit Update Features:
 
 - New Season Kits for all La Liga Hypermotion Teams
 - New Season Kits for all Serie BKT Teams
@@ -61,10 +61,18 @@ import LinkButton from "@components/LinkButton.astro";
 - New Season Kits for all Turkish Teams
 - 2023 Season Kits for all Brasileirão Assaí Teams
 - 2023 Season Kits for all MLS Teams
+- 2023 Season Kits for all Brasileirão Betano Série B Teams
+- New Season Kits for all Hilux Revo Thai League Teams
+- New Season Kits for all Liga BBVA MX Teams
+- 2023 Season Kits for all J1 League Teams
+- 2023 Season Kits for all J2 League Teams
+- Updated Kits for Boca Juniors, River Plate & Milan
 - Alternate Kits for some Premier League Teams (Arsenal, Man United, Man City, Liverpool)
 - Other Small Fixes
 
 ### Previews
+
+{" "}
 
 {" "}
 <Modal
@@ -80,11 +88,13 @@ import LinkButton from "@components/LinkButton.astro";
 </Modal>
 
 {" "}
+
+{" "}
 <Modal
   modalId="k2"
   title="Brasileir o Assa Kits"
   embedImg="yes"
-  Img="/assets/AFC-Champions-League-Kits.jpeg"
+  Img="/assets/Brasileir-o-Assa-Kits.jpeg"
   className="text-left"
 >
   <main slot="main" class="relative">
@@ -93,11 +103,13 @@ import LinkButton from "@components/LinkButton.astro";
 </Modal>
 
 {" "}
+
+{" "}
 <Modal
-  modalId="k3"
+  modalId="k4"
   title="La Liga Hypermotion Kits"
   embedImg="yes"
-  Img="/assets/AFC-Champions-League-Kits.jpeg"
+  Img="/assets/La-Liga-Hypermotion-Kits.jpeg"
   className="text-left"
 >
   <main slot="main" class="relative">
@@ -105,9 +117,22 @@ import LinkButton from "@components/LinkButton.astro";
   </main>
 </Modal>
 
+{" "}
+<Modal
+  modalId="k3"
+  title="Boca Juniors Kits"
+  embedImg="yes"
+  Img="/assets/bocajuniors.jpeg"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/bocajuniors.jpeg)
+  </main>
+</Modal>
+
 ### How to install?
 
-1. Install Evo Web Patch 2024 Version 1.0 if you haven't already.
+1. Install Evo Web Patch 2024 Version 1.0 if you haven't already (Kit Update 1.0 is already included in 2.0 Update).
 2. Go to your livecpk/EvoWeb Patch folder and delete the folder "Kits". This step is very important, copy and replace will result in issues.
 3. If you use Kitserver configs go to your content folder and delete the entire "kit-server" folder.
 4. Now add the EvoWeb Patch folder from the Download to your livecpk folder.
@@ -121,7 +146,7 @@ import LinkButton from "@components/LinkButton.astro";
   <div className="flex flex-wrap gap-2">
     <LinkButton
       targetNew={true}
-      title="Evoweb 2024 kits updated V2"
+      title="Evoweb 2024 kits updated"
       href="https://sharemods.com/gf6ujn4pgus3/EvoWeb_Patch_2024_Kit_Update_2.0.part1.rar.html"
       className="flex items-center [&>p]:!m-0 px-4 !text-skin-inverted [&>p]:!text-skin-inverted [&>p>svg]:text-skin-inverted bg-skin-accent rounded-full !decoration-transparent border border-skin-accent transition duration-500"
     >
@@ -144,7 +169,7 @@ import LinkButton from "@components/LinkButton.astro";
           ></path>
         </g>
       </svg>
-      <p>Evoweb 2024 kits updated V2</p>
+      <p>Evoweb 2024 kits updated AIO</p>
     </LinkButton>
 
   </div>
