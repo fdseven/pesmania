@@ -1,0 +1,234 @@
+﻿# SP Football Life Scoreboard Server map
+
+	# International/National
+	1,		CWC
+	2,		UCL
+	1026,		UCL
+	2050,		UCL
+	3074,		UCL
+	4098,		UCL
+	5122,		UCL
+	6146,		UCL
+	7170,		UCL
+	8194,		UCL
+	3,		UCL
+	1027,		UCL
+	2051,		UCL
+	3075,		UCL
+	4099,		UCL
+	5123,		UCL
+	6147,		UCL
+	7171,		UCL
+	8195,		UCL
+	4,		UCL
+	5,		UEL
+	6,		UEL
+	1000,		UEL
+	1001,		UEL
+	1002,		UEL
+	1003,		UEL
+	1004,		UEL
+	1005,		UEL
+	1006,		UEL
+	1007,		UEL
+	1008,		UEL
+	1009,		UEL
+	1010,		UEL
+	1011,		UEL
+	1029,		UEL
+	2053,		UEL
+	3077,		UEL
+	4101,		UEL
+	5125,		UEL
+	6149,		UEL
+	7173,		UEL
+	9221,		UEL
+	10245,		UEL
+	11269,		UEL
+	12293,		UEL
+	7,		USC
+	8,		LIB
+	9,		LIB
+	10,		LIB
+	1032,		LIB
+	1033,		LIB
+	2056,		LIB
+	3080,		LIB
+	4104,		LIB
+	2057,		LIB
+	3081,		LIB
+	4105,		LIB
+	5129,		LIB
+	6153,		LIB
+	7177,		LIB
+	8201,		LIB
+	1600,		LIB
+	1601,		LIB
+	1602,		LIB
+	1603,		LIB
+	1604,		LIB
+	1605,		LIB
+	1800,		LIB
+	1801,		LIB
+	1802,		LIB
+	1803,		LIB
+	1804,		LIB
+	1805,		LIB
+	34,		WC
+	35,		WC
+	36,		WC
+	37,		WC
+	38,		WC
+	39,		WC
+	40,		WC
+	1058,		WC
+	2082,		WC
+	3106,		WC
+	4130,		WC
+	5154,		WC
+	6178,		WC
+	8226,		WC
+	6800,		WC
+	6801,		WC
+	6802,		WC
+	6803,		WC
+	6804,		WC
+	6805,		WC
+	6806,		WC
+	6807,		WC
+	7200,		WC
+	7201,		WC
+	7202,		WC
+	7203,		WC
+	7204,		WC
+	7205,		WC
+	7206,		WC
+	7207,		WC
+	7400,		WC
+	7600,		WC
+	7800,		WC
+	7801,		WC
+	8000,		WC
+	8001,		WC
+	43,		CA
+	104,		CA
+	1128,		CA
+	2152,		CA
+	3176,		CA
+
+	# England 17, England\EPL\PL23-V2-vidio
+17, England\EPL\PL23-V2-bein
+17, England\EPL\PL23-V2-skysports
+17, England\EPL\PL23-V2-dazn
+17, England\EPL\PL23-V2-directv
+17, England\EPL\PL23-V2-cbssports
+17, England\EPL\PL23-V2-tntsports
+17, England\EPL\PL23-V2-no logo 
+	17,		ENG1
+	79,		ENG2
+	23,		ENGC
+	86,		ENGS
+
+	# Germany
+	50,		GER
+	53,		GERC
+	95,		GERS
+
+	# Italy
+	18,		ITA1
+	82,		ITA2
+	24,		ITAC
+	89,		ITAS
+
+	# Spain
+	19,		SPA1
+	80,		SPA2
+	25,		SPAC
+	87,		SPAS
+
+	# USA
+	51,		MLS
+	166,		MLS
+	167,		MLS
+	10200,		MLS
+	10201,		MLS
+
+	# France
+	20,		FRA1
+	81,		FRA2
+	26,		FRAC
+	88,		FRASC
+
+	# Denmark
+	141,		DEN
+	147,		DEN
+	148,		DEN
+	149,		DEN
+	150,		DEN
+	151,		DEN
+
+	# China
+	120,		CHN
+
+	# Chile
+	67,		CHL
+	68,		CHLC
+
+	# Netherlands
+	21, 		NED
+
+	# Portugal
+	22, 		POR
+	28, 		PORC
+
+	# Argentina
+	30,		ARG
+	59,		ARGC
+	92,		ARGSC
+
+	# Russia
+	116, 		RUS
+
+	# Greece
+	117, 		GRE
+
+	# Turkey
+	118, 		TUR
+
+	# Japan
+	52, 		JAP
+
+	# Scotland
+	133, 		SCO
+	134, 		SCO
+	135, 		SCO
+	136, 		SCO
+	137, 		SCO
+	133, 		SCO
+
+	# Colombia
+	119, 		COL
+	160, 		COL
+	161, 		COL
+	168, 		COL
+	169, 		COL
+	126, 		COLC
+	131, 		COLC
+
+	# Belgium
+	155,		BEL
+	115,		BEL
+	122,		BEL
+	128,		BEL
+	155,		BEL
+	156,		BEL
+	157,		BEL
+	158,		BEL
+	159,		BEL
+
+	# Brazil
+	29, 		BRA1
+	163, 		BRA2
+	31, 		BRAC
+
+# end of map
