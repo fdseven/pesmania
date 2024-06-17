@@ -281,6 +281,7 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
     codeBlock.setAttribute("tabindex", "0");
     codeBlock.appendChild(copyButton);
     // wrap codebock with relative parent element
+    //@ts-ignore
     codeBlock.parentNode.insertBefore(wrapper, codeBlock);
     wrapper.appendChild(codeBlock);
 
@@ -288,7 +289,7 @@ const relatedPosts = getRelatedPosts(allPosts, slug, tags);
       await copyCode(codeBlock, copyButton);
     });
   }
-
+  //@ts-ignore
   async function copyCode(block, button) {
     let code = block.querySelector("code");
     let text = code.innerText;
