@@ -233,6 +233,11 @@
             "Replay Wipe",
             "PES 2021"
           ]
+        },
+        {
+          "title": "isFeatured",
+          "name": "isFeatured",
+          "type": "boolean"
         }
       ]
     },

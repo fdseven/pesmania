@@ -1,0 +1,214 @@
+---
+author: fdseven
+pubDatetime: 2024-06-24T09:07:28.228Z
+title: Adboard UEFA Euro 2024 & Referee Kits by Nguyen Xuan Duc
+postSlug: adboard-uefa-euro-2024-referee-kits
+featured: true
+draft: false
+tags:
+  - downloads
+  - PES 2021
+  - adboard
+  - stadiums
+  - euro
+  - euro 2024
+description: post description
+type: blog video cover
+youtubeVideoId: XeCJmDiPkEM
+lastmod: 2024-06-24T11:17:00.338Z
+isFeatured: false
+coverImage: /assets/adboard-euro.png
+keywords:
+  - PES 2021
+  - adboard
+  - stadiums
+  - UEFA
+  - Euro
+  - Euro 2024
+  - Referee
+  - Kits
+---
+
+import LinkButton from "@components/LinkButton.astro";
+import Modal from "@components/Modal.astro";
+import Figure from "@components/Figure.astro";
+
+{/* COVER IMAGE VIDEO */}
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div class="relative grid lg:-mr-8">
+    <img
+      src={frontmatter.coverImage}
+      class="cover w-full aspect-video object-cover col-start-1 row-start-1"
+    />
+    <Modal
+      modalId={frontmatter.youtubeVideoId}
+      className="play-btn w-full h-full p-3 hover:scale-110 transition duration-300 col-start-1 row-start-1 place-self-center z-10"
+      embedYT="yes"
+    >
+      <main slot="main">
+        <div class="grid">
+          <iframe
+            id="player"
+            class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[720px] w-[100vw] lg:max-w-7xl -m-6 row-start-1 col-start-1"
+            width="720"
+            height="315"
+            src={`https://www.youtube.com/embed/${frontmatter.youtubeVideoId}?enablejsapi=1`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </main>
+    </Modal>
+  </div>
+</div>
+{/* COVER IMAGE VIDEO */}
+
+{/* CONTENT */}
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
+  ## This version will change the advertising sign in the middle of the field according to the tournament name and the city where the match takes place and the advertising signs will be as realistic as possible.
+
+{" "}
+<hr />
+
+## From Nguyen Xuan Duc
+
+### Instructions
+
+**Step 1:** <br/>
+Extract the RAR file
+
+**Step 2:** <br/>
+Copy the Asset and common folders to the Adboars folder in your Sider
+
+**Step 3:** <br/>
+Go to the following path in your Adboards folder `common\bg\model\bg\bill\config`, open the config file and add this code and save
+
+```
+<condition stid="-1" compeid="33" hometeamid="-1" teamexclusion="-1" language="-1" region="-1" title="-1" pattern="uefaeuro2024" />
+```
+
+**Step 4:** <br/>
+Open the stadium_server folder in the sider's content folder. Here I used Marlon Anthony UEFA Euro 2024 stadium set as the main base. Copy the common folder in the stadium folders that I placed in the download folder into the stadium folders that you linked to the Euro 2024 tournament in the game.
+
+**Step 5:** <br/>
+Enter the game and enjoy
+
+It is possible that some stadiums will display advertising signs with high contrast, but this is due to the stadium lighting and I cannot intervene.
+Note: Your stadiums need to be linked to UEFA Euro 2024 via Stadium_Server for the most accurate display
+
+### Download:
+
+{" "}
+<div className="flex flex-wrap gap-2">
+  <LinkButton
+    targetNew={true}
+    title="Adboard Euro 2024"
+    href="https://www.mediafire.com/file/1dor60os7vzwecy/Adboard_UEFA_EURO_2024.rar/file"
+    className="flex items-center [&>p]:!m-0 px-4 !text-skin-inverted [&>p]:!text-skin-inverted [&>p>svg]:text-skin-inverted bg-skin-accent rounded-full !decoration-transparent border border-skin-accent transition duration-500"
+  >
+    <svg
+      class="text-skin-inverted"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z"
+          fill="currentColor"
+        ></path>
+      </g>
+    </svg>
+    <p>Adboard Euro 2024</p>
+  </LinkButton>
+</div>
+
+**Passsword: DontUpLoad**
+
+Please use original links
+
+**UPDATE:** <br/>
+You must overwrite your current StadiumServer.lua as this is what makes the middle adboard work !
+Download: https://www.mediafire.com/file/38iznz9asvrqhyo/StadiumServer.rar/file
+
+{/* ad unit article */}
+
+{" "}
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3982586798741178"
+  crossorigin="anonymous"
+></script>
+
+{" "}
+<hr />
+
+## UPDATE UEFA EURO 2024 Referee Kits
+
+I'm not a professional kit maker. I just try to make it the best I can. This is not the most perfect version, I just try to bring a realistic experience as soon as possible while waiting for a master to create them. I relied on Hawke's UEFA Referee Kits 2023 to create this kit, Hawke is a master at this job, he is probably making them too and it will be the most perfect version. In the meantime, you can experience my products. It will help make the Euro 2024 atmosphere in PES the most perfect!
+
+### Preview
+
+{" "}
+<Figure title="UEFA Euro 2024 Referee Kits" src="/assets/referee%20euro.png" />
+
+### Download:
+
+{" "}
+<div className="flex flex-wrap gap-2">
+  <LinkButton
+    targetNew={true}
+    title="Referee Kits Euro 2024"
+    href="https://www.mediafire.com/file/j2b0yyawpbwxxhl/Referee_Kits_EURO_2024.rar/file"
+    className="flex items-center [&>p]:!m-0 px-4 !text-skin-inverted [&>p]:!text-skin-inverted [&>p>svg]:text-skin-inverted bg-skin-accent rounded-full !decoration-transparent border border-skin-accent transition duration-500"
+  >
+    <svg
+      class="text-skin-inverted"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z"
+          fill="currentColor"
+        ></path>
+      </g>
+    </svg>
+    <p>Referee Kits Euro 2024</p>
+  </LinkButton>
+</div>
+Please use original links ### Credits
+
+Nguyen Xuan Duc
+
+{" "}
+<ins
+  class="adsbygoogle"
+  style="display:block; text-align:center;"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-3982586798741178"
+  data-ad-slot="7745564396"
+></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+{/* ad unit article */}
+
+</div>
+{/* CONTENT */}

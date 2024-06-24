@@ -1,0 +1,319 @@
+---
+author: fdseven
+pubDatetime: 2024-06-24T09:53:29.423Z
+title: PES 2021 UEFA Euro 2024 Stadiums by Marlon Anthony
+postSlug: pas-2021-uefa-euro-2024-stadiums-marlon-anthony
+featured: true
+draft: false
+tags:
+  - downloads
+  - PES 2021
+  - stadiums
+  - euro
+  - euro 2024
+description: post description
+type: Blog post
+lastmod: 2024-06-24T11:16:53.591Z
+isFeatured: 2024-06-24T09:53:29.423Z
+coverImage: /assets/Stuttgart.png
+keywords:
+  - PES 2021
+  - stadiums
+  - euro
+  - euro 2024
+---
+
+import LinkButton from "@components/LinkButton.astro";
+import Modal from "@components/Modal.astro";
+import Figure from "@components/Figure.astro";
+
+{/* COVER IMAGE */}
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div className="relative lg:-mr-8">
+    <img
+      transition:persist
+      src={frontmatter.coverImage}
+      className="cover w-full aspect-video object-cover"
+    />
+  </div>
+</div>
+{/* COVER IMAGE */}
+
+{/* CONTENT */}
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
+  ## PES 2021 Stadiums for Euro 2024 with cosmetics banner Euro 2024 by Marlon Anthony
+
+{" "}
+<hr />
+
+## From Marlon Anthony:
+
+Hi PES Fans, I'm by no means a stadium maker, I'm too lazy to learn to use Blender however thanks to some help from @Trevor Sports and @piospi explaining how to edit stadium textures, I had a go at redressing some of the Euro 2024 stadium dressings before the tournament starts. They're not perfect and I'm an amateur but they'll do until some of the stadium making professionals on this forum take over and can do them better justice. All 10 Stadiums for EURO 2024 are in the download link.
+
+Thanks to @Seven7 for his custom WC06 German Stadiums, I used them as a base for Frankfurt, Stuttgart and Cologne meanwhile I reskinned @papijonnnn & @captain8lunt Munich 2020 stadium.
+
+Special thanks to @anarki_frost for being a huge help and providing textures for Frankfurt, Düsseldorf & Berlin, @pmalulu23 for his blue running track for Berlin and @Game48 for his middle adboards with the city names.
+
+**Known Issues**
+
+There's some flickering on Frankfurt, Stuttgart and Cologne but I have no idea what causes that, again maybe one of the stadium experts can chime in with their knowledge or are welcome to improve them themselves!
+
+### How to install
+
+Add this to your stadiums map text, this for example. The directory depend on your sider folder structure
+
+```
+1065, 019, Cologne Stadium, Euro2024\Football Arena Koln (EURO 2024) , , , # EURO 2024 Group A
+1065, 009, Frankfurt Arena, Euro2024\Football Arena Frankfurt (EURO 2024) , , , # EURO 2024 Group A
+1065, 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024) , , , # EURO 2024 Group A
+1065, 009, Stuttgart Arena, Euro2024\Football Arena Stuttgart (EURO 2024) , , , # EURO 2024 Group A
+
+2089, 038, Olympiastadion Berlin, Germany\Hertha Berlin , , , # EURO 2024 Group B
+2089, 009, Volksparkstadion Hamburg, Germany\Volksparkstadion , , , # EURO 2024 Group B
+2089, 019, Düsseldorf Arena, Germany\Merkur Spiel-Arena , , , # EURO 2024 Group B
+2089, 051, BVB Stadion Dortmund, Germany\Signal Iduna Park, , , # EURO 2024 Group B
+2089, 063, Arena AufSchalke, Euro2024\Football Arena Gelsenkirchen (EURO 2024) , , , # EURO 2024 Group B
+2089, 009, Leipzig Stadium, Germany\RB Leipzig, , , # EURO 2024 Group B
+
+3113, 019, Cologne Stadium, Euro2024\Football Arena Koln (EURO 2024) , , , # EURO 2024 Group C
+3113, 063, Arena AufSchalke, Euro2024\Football Arena Gelsenkirchen (EURO 2024) , , , # EURO 2024 Group C
+3113, 009, Frankfurt Arena, Euro2024\Football Arena Frankfurt (EURO 2024) , , , # EURO 2024 Group C
+3113, 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024) , , , # EURO 2024 Group C
+3113, 009, Stuttgart Arena, Euro2024\Football Arena Stuttgart (EURO 2024), , , # EURO 2024 Group C
+
+4137, 038, Olympiastadion Berlin, Germany\Hertha Berlin, , , # EURO 2024 Group D
+4137, 051, BVB Stadion Dortmund, Germany\Signal Iduna Park, , , # EURO 2024 Group D
+4137, 019, Düsseldorf Arena, Germany\Merkur Spiel-Arena , , , # EURO 2024 Group D
+4137, 009, Volksparkstadion Hamburg, Germany\Volksparkstadion , , , # EURO 2024 Group D
+4137, 009, Leipzig Stadium, Germany\RB Leipzig , , , # EURO 2024 Group D
+
+5161, 009, Cologne Stadium, Euro2024\Football Arena Koln (EURO 2024) , , , # EURO 2024 Group E
+5161, 019, Düsseldorf Arena, Germany\Merkur Spiel-Arena , , , # EURO 2024 Group E
+5161, 009, Frankfurt Arena, Euro2024\Football Arena Frankfurt (EURO 2024) , , , # EURO 2024 Group E
+5161, 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024) , , , # EURO 2024 Group E
+5161, 009, Stuttgart Arena, Euro2024\Football Arena Stuttgart (EURO 2024), , , # EURO 2024 Group E
+
+
+6185, 051, BVB Stadion Dortmund, Germany\Signal Iduna Park, , , # EURO 2024 Group F
+6185, 063, Arena AufSchalke, Euro2024\Football Arena Gelsenkirchen (EURO 2024) , , , # EURO 2024 Group F
+6185, 009, Volksparkstadion Hamburg, Germany\Volksparkstadion , , , # EURO 2024 Group F
+6185, 009, BVB Stadion Dortmund, Germany\Signal Iduna Park , , , # EURO 2024 Group F
+6185, 009, Leipzig Stadium, Germany\RB Leipzig, , , # EURO 2024 Group F
+
+42, 063, Arena AufSchalke, Euro2024\Football Arena Gelsenkirchen (EURO 2024), 051, BVB Stadion Dortmund, Germany\Signal Iduna Park # EURO 2024 Knock-Out Stage + Final
+42, 019, Cologne Stadium, Euro2024\Football Arena Koln (EURO 2024), 009, Volksparkstadion Hamburg, Germany\Volksparkstadion # EURO 2024 Knock-Out Stage + Final
+42, 051, BVB Stadion Dortmund, Germany\Signal Iduna Park, 009, Frankfurt Arena, Euro2024\Football Arena Frankfurt (EURO 2024) # EURO 2024 Knock-Out Stage + Final
+42, 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024), 009, Volksparkstadion Hamburg, Germany\Volksparkstadion # EURO 2024 Knock-Out Stage + Final
+42, 009, Leipzig Stadium, Germany\RB Leipzig, 038, Olympiastadion Berlin, Germany\Hertha Berlin # EURO 2024 Knock-Out Stage + Final
+42, 019, Düsseldorf Arena, Germany\Merkur Spiel-Arena, 051, BVB Stadion Dortmund, Germany\Signal Iduna Park # EURO 2024 Knock-Out Stage + Final
+42, 009, Volksparkstadion Hamburg, Germany\Volksparkstadion, 038, Olympiastadion Berlin, Germany\Hertha Berlin # EURO 2024 Knock-Out Stage + Final
+42, 009, Frankfurt Arena, Euro2024\Football Arena Frankfurt (EURO 2024), 063, Arena AufSchalke, Euro2024\Football Arena Gelsenkirchen (EURO 2024) # EURO 2024 Knock-Out Stage + Final
+42, 051, BVB Stadion Dortmund, Germany\Signal Iduna Park , 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024) # EURO 2024 Knock-Out Stage + Final
+42, 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024), 051, BVB Stadion Dortmund, Germany\Signal Iduna Park # EURO 2024 Knock-Out Stage + Final
+42, 038, Olympiastadion Berlin, Germany\Hertha Berlin, 031, Football Arena Munich, Euro2024\Football Arena Munich (EURO 2024) # EURO 2024 Knock-Out Stage + Final.
+```
+
+{/* ad unit article */}
+
+{" "}
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3982586798741178"
+  crossorigin="anonymous"
+></script>
+
+### Previews
+
+{" "}
+<Modal
+  modalId="frankfurt"
+  title="Frankfurt"
+  embedImg="yes"
+  Img="/assets/Frankfurt.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Frankfurt.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Gelsenkirchen"
+  title="Gelsenkirchen"
+  embedImg="yes"
+  Img="/assets/Gelsenkirchen.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Gelsenkirchen.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Koln"
+  title="Koln"
+  embedImg="yes"
+  Img="/assets/Koln.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Koln.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Munich"
+  title="Munich"
+  embedImg="yes"
+  Img="/assets/Munich.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Munich.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Stuttgart"
+  title="Stuttgart"
+  embedImg="yes"
+  Img="/assets/Stuttgart.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Stuttgart.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Leipzig"
+  title="Leipzig"
+  embedImg="yes"
+  Img="/assets/Leipzig.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Leipzig.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Dortmund"
+  title="Dortmund"
+  embedImg="yes"
+  Img="/assets/Dortmund.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Dortmund.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Dusseldorf"
+  title="Dusseldorf"
+  embedImg="yes"
+  Img="/assets/Dusseldorf.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Dusseldorf.png)
+  </main>
+</Modal>
+
+{" "}
+<Modal
+  modalId="Berlin"
+  title="Berlin"
+  embedImg="yes"
+  Img="/assets/Berlin.png"
+  className="text-left"
+>
+  <main slot="main" class="relative">
+    ![](/assets/Berlin.png)
+  </main>
+</Modal>
+
+{" "}
+<ins
+  class="adsbygoogle"
+  style="display:block; text-align:center;"
+  data-ad-layout="in-article"
+  data-ad-format="fluid"
+  data-ad-client="ca-pub-3982586798741178"
+  data-ad-slot="7745564396"
+></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+{/* ad unit article */}
+
+### Download:
+
+  <div className="flex flex-wrap gap-2">
+    <LinkButton
+      targetNew={true}
+      title="Stadiums Euro 2024"
+      href="https://drive.google.com/file/d/1xzaTN-pVLdcn0Mtz3D23SFwnDSS6TEzo/view?usp=sharing"
+      className="flex items-center [&>p]:!m-0 px-4 !text-skin-inverted [&>p]:!text-skin-inverted [&>p>svg]:text-skin-inverted bg-skin-accent rounded-full !decoration-transparent border border-skin-accent transition duration-500"
+    >
+      <svg
+        class="text-skin-inverted"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z"
+            fill="currentColor"
+          ></path>
+        </g>
+      </svg>
+      <p>Google Drive</p>
+    </LinkButton>
+
+    <LinkButton
+      targetNew={true}
+      title="Stadiums Euro 2024"
+      href="https://www.mediafire.com/file/9g7yhj4mviooupb/EURO+2024+Stadiums.rar/file"
+      className="flex items-center [&>p]:!m-0 px-4 !text-skin-inverted [&>p]:!text-skin-inverted [&>p>svg]:text-skin-inverted bg-skin-accent rounded-full !decoration-transparent border border-skin-accent transition duration-500"
+    >
+      <svg
+        class="text-skin-inverted"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z"
+            fill="currentColor"
+          ></path>
+        </g>
+      </svg>
+      <p>Mediafire</p>
+    </LinkButton>
+
+  </div>
+</div>
+{/* CONTENT */}
