@@ -17,6 +17,9 @@ const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
+
+// const response = await fetch('http://127.0.0.1:1337/api/blogs').then(res => res.json())
+// const blogs = response.data
 ---
 
 <Layout>
@@ -60,6 +63,22 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     </div>
     <div class="col-span-8 lg:col-start-2 lg:col-span-6 max-w-full px-0">
       <h2 class="font-black text-4xl mb-4">For all football lovers,</h2>
+
+      <!-- {JSON.stringify(blogs)} -->
+      <!-- {blogs.map(({
+        attributes: {//@ts-ignore
+          Title, 
+          Body:[
+            {children:[//@ts-ignore
+              {text}
+            ]}
+          ]}
+        }) => (
+        <h2>{Title} </h2>
+        <div>{text}</div>
+      ))} -->
+      
+      <!-- <h2>{blogs.name.first} {blogs.name.last}</h2> -->
       <p>
          you must be familiar with the game Pro Evolution Soccer. Therefore, PESMania presents the best add-ons and updates for all PES gamers, to keep them enthusiastic and have high enthusiasm. With this, PESMania also strives to be the best platform for those looking for the best football simulator in the world. 
         We share the latest module that allows having multiple scoreboards for any competition or league. The latest patch could see all licensed teams with official names, logos, kits and more.
