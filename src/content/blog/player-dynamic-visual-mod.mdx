@@ -1,0 +1,201 @@
+---
+author: fdseven
+pubDatetime: 2024-12-12T08:25:22.975Z
+title: Player Dynamic Visual Mod
+postSlug: player-dynamic-visual-mod
+featured: true
+draft: false
+tags: []
+description: post description
+type: ""
+youtubeVideoId: fX0qOiMxcWE
+lastmod: null
+isFeatured: false
+coverImage: https://lh3.googleusercontent.com/pw/AP1GczPCYW57cKNL-1q6WSVbQyU8oiC6z0JggaiM58TMYZSAYWBS83EnC6wryF-_vvhGhfcl8flENY6PgNFCoZ4XXDJukIro-fsoA8RZ96Yo3EQhjtRRLvc=w2400
+keywords: ""
+fmContentType: blog video cover
+---
+
+import Modal from "@components/Modal.astro";
+import LinkButton from "@components/LinkButton.astro";
+
+{/* COVER IMAGE VIDEO */}
+
+<div class="col-start-1 col-span-8 lg:col-start-2 lg:col-end-9 lg:row-span-2 mt-0 lg:-mt-40">
+  <div class="relative grid lg:-mr-8">
+    <img
+      src={frontmatter.coverImage}
+      class="cover w-full aspect-video object-cover col-start-1 row-start-1"
+    />
+    <Modal
+      modalId={frontmatter.youtubeVideoId}
+      className="play-btn w-full h-full p-3 hover:scale-110 transition duration-300 col-start-1 row-start-1 place-self-center z-10"
+      embedYT="yes"
+    >
+      <main slot="main">
+        <div class="grid">
+          <iframe
+            id="player"
+            class="max-w-[90vw] h-[100vh] max-h-[50.25vw] lg:max-h-[720px] w-[100vw] lg:max-w-7xl -m-6 row-start-1 col-start-1"
+            width="720"
+            height="315"
+            src={`https://www.youtube.com/embed/${frontmatter.youtubeVideoId}?enablejsapi=1`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </main>
+    </Modal>
+  </div>
+</div>
+{/* COVER IMAGE VIDEO */}
+
+{/* CONTENT */}
+
+<div class="col-span-8 md:col-start-2 md:col-span-6 lg:col-start-2 lg:col-span-4 [&>h2]:!mt-0">
+  ## Present to you, the Player Dynamic Visual mod by minhanh158
+
+{" "}
+<hr />
+
+### WHAT'S IN IT
+
+- New Global Model: slimmer body, more natural shoulder, realistic grip sox texture.
+- Special model assigned to specific players. You can see list of assignment below, though it may not fully enough as I forgot to write down some of them.
+  Spoiler: List of assignment
+- Graphical artifact bugs in previous mod are now fixed.
+- And the most important thing: many players now would change their appearance/kit style between matches (I intended to write a list of them, but sorry I'm too lazy now. Some names I can remember: Darwin Nunez, Vinicius, Mbappe, Yamal, Raphinha, Taremi, Reece James, Joao Felix...and many more). At the moment most of them are changing their socks length, except De Paul - I already included some variations of his face, with different hairstyle, you can play some matches with Atletico and see it.
+
+### INSTALLATION
+
+1. MANDATORY: This is a total rework, so I strongly advise you to DELETE/DISABLE all other model/accessories mod, including my previous version (except the hook tool, if it already works for you, leave it alone). You should also disable all special model players made by other modders if you already have some. I developed the mod base on another model & accessories mod, and it may conflict with the mod that other modder use.
+2. Download & extract my PES2021_Dynamic Player Visual.rar.
+3. Go to Sider folder, copy everything (content, livecpk & modules) to where you locate your Sider.
+4. Write these in Sider.ini. I think it should work regardless the position, but to be sure, just write all the “cpk.root” line above every other “cpk.root” line in your Sider.ini. The kitglobal.lua & Dynamic_Player_Visual.lua module line can go anywhere.
+
+```
+// sider.ini
+cpk.root = ".\livecpk\Add-On\Arm e Thigh"
+cpk.root = ".\livecpk\Add-On\New Model_Global"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Extra Curved Legs"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Grip Socks_Extra Long"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Grip Socks_Long"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Shirt_Baggy"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Shirt_Out"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Shirt_Tucked In"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Shorts_Baggy"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Shorts_Shorter"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Socks_Force Long"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Socks_Force Normal"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Socks_Force Short"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Socks_HolesxMoiduran"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Socks_Mid-High"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Socks_Mid-Low"
+cpk.root = ".\livecpk\Add-On\New Model_Special\Wrist Tape_Longer"
+cpk.root = ".\livecpk\Add-On\New Model_Special\xMoiduran_Special Body"
+cpk.root = ".\livecpk\Add-On\New Model_Special\xReferee"
+
+lua.module = "Add-On\Dynamic_Player_Visual.lua"
+lua.module = "kitglobal.lua"
+```
+
+5. This is the tricky part, it’ll decide if the mod works or not. If you're using my previous mod and the mod work fine already, you can skip this.
+   Go to Hook folder, you’ll see V1, V2 & V3. Choose one of them (I’m using V2 myself, it works for me), copy & paste everything in it (the “PES21_Hook” folder and 2 files: “dinput8.dll” & “PES21_Hook.dll”) to your main game directory. You should also copy & paste them to where your sider.ini is located, if it’s not the same directory where your main game is placed.
+
+To check if the mod works, go and see if Bellingham’s socks have holes.
+
+6. If the mod doesn’t work, try another version of Hook tool.
+7. If the mod works, simply enjoy the game.
+
+### INSTRUCTION & TIPS
+
+This is quite long, so I put it in spoiler.
+
+**How to assign “special setting” to specific players**
+
+1. In each special model folder (livecpk\Add-On\New Model_Special), when you go to …\Asset\model\character\face\real, you’ll find all the folder with players’ ID, and one folder named ID. If you want any player to have that special setting, you can just simply duplicate that ID folder, and rename it to the ID of the player you want.
+   E.g I want Ben White (ID 114044) to wear Long Socks, no matter how I set his ingame socks setting, I’ll go to Socks_Force Long\Asset\model\character\face\real, make a copy of the ID folder, and rename it to 114044.
+
+2. There are some “special setting” can be used at the same time, as long as the .fmdl file doesn’t conflict.
+   E.g I want Lamine Yamal (162114) to wear baggy short, and have the forced long socks setting, I can make have two 162114 folder in both Socks_Force Long & Short_Baggy folder. It’s because Force Long Socks uses thigh & socks file, and Baggy Short uses pants file.
+
+3. In other hand, if those special setting use the same kind of file (e.g Baggy Short & Shorter Short, or Mid-Low Socks & Force Short Socks…), you’ll not be able to use both setting at the same time. One will overlay the other (basically, the one written above in sider.ini).
+
+**How to enable dynamic apperance/kit style for specific player**
+
+1. In Dynamic_Player_Visual folder (content\Add-On\Dynamic_Player_Visual), you’ll see Variations folder, it has 8 folder named 1-8, each of them is structured just like faces folder in livecpk. I leave 1 & 8 blank in purpose, to make sure there will be matches our players appear like the settings we set in edit mode.
+2. You can choose a special setting from special model folder by go to [that special setting]\Asset\model\character\face\real, copy ID folder to any root of variation, rename it to that player’s ID.
+   E.g Darwin Nunez’s id is 133301, and I set his default setting is Long socks, but I want him to have some matches wear mid-high socks. I’ll go to
+   livecpk\Add-On\New Model_Special\Socks_Mid-High\Asset\model\character\face\real
+
+then copy the ID folder in it, and paste to
+
+content\Add-On\Dynamic_Player_Visual\Variations\2\Asset\model\character\face\real
+
+and rename it to 133301.
+
+3. If you want that look appears more frequently, you can repeat those steps to another variation (3, 4, 5….)
+4. The same method is applied if you want a player to have different faces/hairstyles in different matches. Just put their different face folders in different variations.
+
+**Some bugs/problems you may face**
+
+1. Player’s model appear wrong/weird in Edit mode. It’s totally normal. If the mod works, and you enable the setting correctly, it’ll work well in game.
+2. Rectangle chest with Adama Traore, as halobaim poited out here. It happens with Adama only, and it happens because we force him to wear tight kit, but use normal kit in global. There isn't a solution for that yet. That's why at first I tried to enable tight kit for some specific players (Conor Gallagher, Jack Grealish...) while others remain wearing normal kit, but then gave up. This Adama's model is an exception because Moiduran did it so good, and I think I can live with that rectangle.
+3. In some matches, at near view, you may see some players’ thigh looks “plain”. I don’t know what causes it, probably the hook tool has its limitation and couldn’t read everything at some point, or perhaps our graphic card is not powerful enough. Anyway, that problem would always disappear after 1st half, or if it happens in 2nd half, it’ll dissappear in the next match, so it’s something we can accept imo.
+4. You can add other special models (made by other modders) to the mod, but make sure to understand what you’re doing, and do it at your own risk. I couldn’t help you with any kind of error you may have if you add any other model that is not included in my mod.
+
+{" "}
+<hr />
+
+**EDIT:** Something happened when I set up the .rar file that makes everything in Short_Shorter folder goes away. Please download this and put it in livecpk\Add-On\New Model_Special: Short_Shorter
+
+---
+
+Feel free to use personally or include in any patch you like. If you’d like to repost it, please use original link, and give your audience proper instruction to use the mod.
+
+That's it. I hope this little effort of mine would bring some more realism to the game. Wish you guys a lovely weekend.
+
+### Credits
+
+- @kelvinchan327 , for the hook tool
+- @Moiduran2 for the idea of making special model
+- @cartassara for the modeling tutorial
+- @6ons1 for the grip sox mod
+
+### DOWNLOADS
+
+{" "}
+<div className="flex flex-wrap gap-2">
+  <LinkButton
+    targetNew={true}
+    title="Player Dynamic Visual Mod"
+    href="https://www.mediafire.com/file/v6lj9hfnojzjy5g/PES2021_Dynamic_Player_Visual.rar/file"
+    className="flex items-center [&>p]:!m-0 px-4 !text-skin-inverted [&>p]:!text-skin-inverted [&>p>svg]:text-skin-inverted bg-skin-accent rounded-full !decoration-transparent border border-skin-accent transition duration-500"
+  >
+    <svg
+      class="text-skin-inverted"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M5.625 15C5.625 14.5858 5.28921 14.25 4.875 14.25C4.46079 14.25 4.125 14.5858 4.125 15H5.625ZM4.875 16H4.125H4.875ZM19.275 15C19.275 14.5858 18.9392 14.25 18.525 14.25C18.1108 14.25 17.775 14.5858 17.775 15H19.275ZM11.1086 15.5387C10.8539 15.8653 10.9121 16.3366 11.2387 16.5914C11.5653 16.8461 12.0366 16.7879 12.2914 16.4613L11.1086 15.5387ZM16.1914 11.4613C16.4461 11.1347 16.3879 10.6634 16.0613 10.4086C15.7347 10.1539 15.2634 10.2121 15.0086 10.5387L16.1914 11.4613ZM11.1086 16.4613C11.3634 16.7879 11.8347 16.8461 12.1613 16.5914C12.4879 16.3366 12.5461 15.8653 12.2914 15.5387L11.1086 16.4613ZM8.39138 10.5387C8.13662 10.2121 7.66533 10.1539 7.33873 10.4086C7.01212 10.6634 6.95387 11.1347 7.20862 11.4613L8.39138 10.5387ZM10.95 16C10.95 16.4142 11.2858 16.75 11.7 16.75C12.1142 16.75 12.45 16.4142 12.45 16H10.95ZM12.45 5C12.45 4.58579 12.1142 4.25 11.7 4.25C11.2858 4.25 10.95 4.58579 10.95 5H12.45ZM4.125 15V16H5.625V15H4.125ZM4.125 16C4.125 18.0531 5.75257 19.75 7.8 19.75V18.25C6.61657 18.25 5.625 17.2607 5.625 16H4.125ZM7.8 19.75H15.6V18.25H7.8V19.75ZM15.6 19.75C17.6474 19.75 19.275 18.0531 19.275 16H17.775C17.775 17.2607 16.7834 18.25 15.6 18.25V19.75ZM19.275 16V15H17.775V16H19.275ZM12.2914 16.4613L16.1914 11.4613L15.0086 10.5387L11.1086 15.5387L12.2914 16.4613ZM12.2914 15.5387L8.39138 10.5387L7.20862 11.4613L11.1086 16.4613L12.2914 15.5387ZM12.45 16V5H10.95V16H12.45Z"
+          fill="currentColor"
+        ></path>
+      </g>
+    </svg>
+    <p>Player Dynamic Visual Mod</p>
+  </LinkButton>
+</div>
+
+</div>
+{/* CONTENT */}
