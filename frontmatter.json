@@ -278,6 +278,22 @@
     "Figure": {
       "description": "Figure for image content",
       "body": "<Figure title=\"[[title]]\" src=\"[[&mediaUrl]]\" />",
+      "fields": [
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string",
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "url",
+          "title": "mediaUrl",
+          "type": "string",
+          "single": true,
+          "default": "FM_SELECTED_TEXT"
+        },
+      ],
       "isMediaSnippet": true
     },
     "Link Button": {
@@ -337,6 +353,46 @@
         "src=\"[[&mediaUrl]]\" ",
         "class=\"aspect-video\" />",
         "</video>"
+      ],
+      "isMediaSnippet": true
+    },
+    "Modal": {
+      "description": "Modalbox",
+      "body": [
+        "<Modal",
+        "    modalId=\"[[&modalId]]\"",
+        "    title=\"[[&title]]\"",
+        "    embedImg=\"yes\"",
+        "    Img=\"[[&mediaUrl]]\"",
+        "    className=\"text-left\"",
+        "  >",
+        "    <main slot=\"main\" class=\"relative\">",
+        "      ![]([[&mediaUrl]])",
+        "    </main>",
+        "  </Modal>"
+      ],
+      "fields": [
+        {
+          "name": "modalId",
+          "title": "modalId",
+          "type": "string",
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "title",
+          "title": "title",
+          "type": "string",
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "Img",
+          "title": "mediaUrl",
+          "type": "string",
+          "single": true,
+          "default": "FM_SELECTED_TEXT"
+        },
       ],
       "isMediaSnippet": true
     }
